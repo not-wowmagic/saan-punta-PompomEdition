@@ -23,8 +23,8 @@ To add, edit, or customize locations (nodes) and transport connections (legs), m
 Each node represents a named transit hub or destination, requiring unique IDs and exact coordinate bindings for the map rendering.
 ```json
 {
-  "id": "plv",
-  "name": "Pamantasan ng Lungsod ng Valenzuela (PLV)",
+  "id": "malinta",
+  "name": "Malinta / Maysan (Valenzuela)",
   "lat": 14.6993,
   "lng": 120.9754
 }
@@ -35,7 +35,7 @@ Legs connect two nodes together and specify the transit mode, route details, dis
 ```json
 {
   "id": "leg-1",
-  "from": "plv",
+  "from": "malinta",
   "to": "val_city_hall",
   "mode": "jeepney",
   "route_name": "Malanday - Monumento",

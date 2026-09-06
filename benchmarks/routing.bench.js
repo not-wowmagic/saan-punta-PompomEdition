@@ -6,13 +6,13 @@ import { makeGrid } from './grid-fixture';
 
 const legs = /** @type {{nodes: any[], legs: any[]}} */ (routes).legs;
 
-describe('routing engines on the real dataset (41 nodes / 316 legs)', () => {
+describe('routing engines on the real dataset', () => {
   bench('legacy bounded DFS enumeration', () => {
-    getSortedRoutes(legs, 'plv', 'intramuros');
+    getSortedRoutes(legs, 'malinta', 'intramuros');
   });
 
   bench('dijkstra single best route', () => {
-    getCheapestRoute(legs, 'plv', 'intramuros');
+    getCheapestRoute(legs, 'malinta', 'intramuros');
   });
 });
 

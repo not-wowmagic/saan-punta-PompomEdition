@@ -19,7 +19,8 @@ export default function SearchableDropdown({
 
   // Filtered options based on search query
   const filteredOptions = options.filter(opt =>
-    opt.label.toLowerCase().includes(searchQuery.toLowerCase())
+    opt.label.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    (opt.badge && opt.badge.toLowerCase().includes(searchQuery.toLowerCase()))
   );
 
   // Reset highlighted index when filtered options change
@@ -120,7 +121,7 @@ export default function SearchableDropdown({
           autoComplete="off"
         />
 
-        {value && !isOpen && (
+        {value && !isOpen ? (
           <button
             type="button"
             className="clear-dropdown-btn"
@@ -129,14 +130,15 @@ export default function SearchableDropdown({
               onChange('');
             }}
             aria-label="Clear selection"
+            title="Clear selection"
           >
-            <X size={14} />
+            <X size={15} />
           </button>
+        ) : (
+          <span className="dropdown-chevron-icon">
+            <ChevronDown size={15} />
+          </span>
         )}
-
-        <span className="dropdown-chevron-icon">
-          <ChevronDown size={16} />
-        </span>
       </div>
 
       {isOpen && (
@@ -157,13 +159,20 @@ export default function SearchableDropdown({
                   role="option"
                   aria-selected={isSelected}
                 >
-                  <span className="option-label">{option.label}</span>
-                  {isSelected && <span className="option-checkmark">✓</span>}
+                  <div className="option-label-wrapper">
+                    <span className="option-label">{option.label}</span>
+                    {option.badge && (
+                      <span className={`option-category-badge badge-${option.badgeType || 'default'}`}>
+                        {option.badge}
+                      </span>
+                    )}
+                  </div>
+                  {isSelected && <span className="option-checkmark">🍮</span>}
                 </li>
               );
             })
           ) : (
-            <li className="dropdown-no-results">No locations match your search</li>
+            <li className="dropdown-no-results">No locations match your search 🐾</li>
           )}
         </ul>
       )}

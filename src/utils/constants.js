@@ -22,11 +22,11 @@ export const MODE_LABELS = {
 };
 
 export const MODE_COLORS = {
-  jeepney: "#3b82f6",     // Blue
-  bus: "#db2777",         // Rose/Pink
-  train: "#8b5cf6",       // Purple
-  taxi: "#dc2626",        // Red
-  moto_taxi: "#06b6d4",   // Cyan
-  walk: "#9ca3af",        // Muted Grey/Silver
-  tricycle: "#f97316"     // Orange
+  jeepney: "#D97706",     // Amber
+  bus: "#C2410C",         // Warm Rust/Orange
+  train: "#7C3AED",       // Purple
+  taxi: "#DC2626",        // Red
+  moto_taxi: "#0891B2",   // Teal
+  walk: "#78350F",        // Warm brown
+  tricycle: "#EA580C"     // Orange
 };

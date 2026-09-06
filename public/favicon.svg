@@ -1,10 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
-  <!-- Premium Dark Slate circular background -->
-  <circle cx="256" cy="256" r="240" fill="#0f172a" stroke="#1e293b" stroke-width="14" />
+  <!-- Warm yellow pudding background circle -->
+  <circle cx="256" cy="256" r="240" fill="#FFF275" stroke="#F59E0B" stroke-width="12" />
   
-  <!-- Sleek Route Finder Map Pin in Indigo/Blue theme (no gradients, clean modern fill) -->
-  <path fill="#4f46e5" stroke="#ffffff" stroke-width="8" d="M256 90c-71.8 0-130 58.2-130 130 0 95 130 202 130 202s130-107 130-202c0-71.8-58.2-130-130-130zm0 175c-24.8 0-45-20.2-45-45s20.2-45 45-45 45 20.2 45 45-20.2 45-45 45z"/>
+  <!-- Pudding Mascot / Custard Flan -->
+  <!-- Cute ears -->
+  <ellipse cx="140" cy="220" rx="35" ry="60" fill="#FFE248" transform="rotate(-20 140 220)" stroke="#4A2810" stroke-width="8" />
+  <ellipse cx="372" cy="220" rx="35" ry="60" fill="#FFE248" transform="rotate(20 372 220)" stroke="#4A2810" stroke-width="8" />
+
+  <!-- Main cute face -->
+  <ellipse cx="256" cy="285" rx="145" ry="125" fill="#FFF082" stroke="#4A2810" stroke-width="9" />
   
-  <!-- Outer glowing concentric circle matching the premium theme -->
-  <circle cx="256" cy="256" r="248" fill="none" stroke="#3b82f6" stroke-width="6" opacity="0.4" />
+  <!-- Signature Brown Beret -->
+  <ellipse cx="256" cy="175" rx="72" ry="26" fill="#4A2810" />
+  <circle cx="256" cy="155" r="12" fill="#4A2810" />
+  
+  <!-- Eyes -->
+  <ellipse cx="205" cy="275" rx="8" ry="11" fill="#4A2810" />
+  <ellipse cx="307" cy="275" rx="8" ry="11" fill="#4A2810" />
+  
+  <!-- Cute Pink Blush Cheeks -->
+  <ellipse cx="170" cy="300" rx="18" ry="12" fill="#FF8DA1" opacity="0.8" />
+  <ellipse cx="342" cy="300" rx="18" ry="12" fill="#FF8DA1" opacity="0.8" />
+  
+  <!-- Nose & Mouth (w-shaped kawaii mouth) -->
+  <ellipse cx="256" cy="290" rx="7" ry="5" fill="#4A2810" />
+  <path d="M 242 305 Q 249 315 256 307 Q 263 315 270 305" fill="none" stroke="#4A2810" stroke-width="6" stroke-linecap="round" />
 </svg>

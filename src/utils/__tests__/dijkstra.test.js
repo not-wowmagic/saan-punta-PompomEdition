@@ -286,8 +286,8 @@ describe('dijkstraSearch transfer-aware state', () => {
 describe('parity with the legacy bounded-DFS engine (regression)', () => {
   const legs = routesData.legs;
   const REPRESENTATIVE_PAIRS = [
-    ['plv', 'monumento'],
-    ['plv', 'sm_north'],
+    ['malinta', 'monumento'],
+    ['malinta', 'sm_north'],
     ['malanday_term', 'recto'],
     ['sm_fairview', 'intramuros']
   ];

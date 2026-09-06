@@ -15,11 +15,11 @@
  * routes. Two routes sharing the same line/mode journey read identically to
  * a commuter even when their leg ids differ.
  */
-import { scoreEdgeSequence } from './edge-cost';
-import { buildRoutingGraph } from './routing-graph';
-import { processPath } from './graph';
-import { dijkstraSearch } from './dijkstra';
-import { resolveProfile } from './profiles';
+import { scoreEdgeSequence } from './edge-cost.js';
+import { buildRoutingGraph } from './routing-graph.js';
+import { processPath } from './graph.js';
+import { dijkstraSearch } from './dijkstra.js';
+import { resolveProfile } from './profiles.js';
 
 const DEFAULT_MAX_ROUTES = 5;
 
@@ -46,7 +46,7 @@ function edgeSeqKey(edges) {
  */
 function signature(edges) {
   return edges
-    .map((e) => `${e.direction === 'reverse' ? '<' : ''}${e.leg.route_name ?? e.mode}|${e.mode}`)
+    .map((e) => `${e.leg.route_name ?? e.mode}|${e.mode}`)
     .join('>');
 }
 

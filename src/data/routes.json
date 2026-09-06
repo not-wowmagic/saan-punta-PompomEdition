@@ -1,9 +1,9 @@
 {
-  "_comment": "Manually curated route network for Saan Punta. Coordinates are real positions for the PLV area and Metro Manila nodes.",
+  "_comment": "Manually curated route network for Saan Punta. Coordinates are real positions for the Metro Manila nodes.",
   "nodes": [
     {
-      "id": "plv",
-      "name": "Pamantasan ng Lungsod ng Valenzuela (PLV)",
+      "id": "malinta",
+      "name": "Malinta / Maysan (Valenzuela)",
       "lat": 14.6993,
       "lng": 120.9754
     },
@@ -28,7 +28,7 @@
     {
       "id": "sm_fairview",
       "name": "SM Fairview",
-      "lat": 14.7350,
+      "lat": 14.735,
       "lng": 121.0585
     },
     {
@@ -45,8 +45,8 @@
     },
     {
       "id": "fatima_val",
-      "name": "Our Lady of Fatima University (OLFU)",
-      "lat": 14.6780,
+      "name": "OLFU (Our Lady of Fatima University)",
+      "lat": 14.678,
       "lng": 120.9808
     },
     {
@@ -106,7 +106,7 @@
     {
       "id": "intramuros",
       "name": "Intramuros (Manila)",
-      "lat": 14.5910,
+      "lat": 14.591,
       "lng": 120.9782
     },
     {
@@ -214,7 +214,7 @@
     {
       "id": "ateneo_katipunan",
       "name": "Ateneo de Manila University (Katipunan)",
-      "lat": 14.6400,
+      "lat": 14.64,
       "lng": 121.0772
     },
     {
@@ -244,14 +244,128 @@
     {
       "id": "ccp_complex",
       "name": "CCP Complex / Star City (Pasay)",
-      "lat": 14.5550,
+      "lat": 14.555,
       "lng": 120.9833
+    },
+    {
+      "id": "east_ave_med_ctr",
+      "name": "East Avenue Medical Center (EAMC)",
+      "lat": 14.6394,
+      "lng": 121.0483
+    },
+    {
+      "id": "val_med_ctr",
+      "name": "Valenzuela Medical Center (VMC)",
+      "lat": 14.6865,
+      "lng": 120.9782
+    },
+    {
+      "id": "qc_gen_hosp",
+      "name": "Quezon City General Hospital (QCGH)",
+      "lat": 14.6644,
+      "lng": 121.0202
+    },
+    {
+      "id": "tondo_med_ctr",
+      "name": "Tondo Medical Center (TMC)",
+      "lat": 14.6293,
+      "lng": 120.9639
+    },
+    {
+      "id": "fabella_med_ctr",
+      "name": "Dr. Jose Fabella Memorial Hospital",
+      "lat": 14.6125,
+      "lng": 120.9825
+    },
+    {
+      "id": "malabon_health_dept",
+      "name": "Malabon Health Department",
+      "lat": 14.6586,
+      "lng": 120.9525
+    },
+    {
+      "id": "ospital_ng_malabon",
+      "name": "Ospital ng Malabon",
+      "lat": 14.6517,
+      "lng": 120.9633
+    },
+    {
+      "id": "ospital_ng_sampaloc",
+      "name": "Ospital ng Sampaloc",
+      "lat": 14.6074,
+      "lng": 120.9996
+    },
+    {
+      "id": "ospital_ng_tondo",
+      "name": "Ospital ng Tondo",
+      "lat": 14.6152,
+      "lng": 120.9754
+    },
+    {
+      "id": "justice_abad_santos",
+      "name": "Justice Jose Abad Santos General Hospital",
+      "lat": 14.5997,
+      "lng": 120.9719
+    },
+    {
+      "id": "city_care_valenzuela",
+      "name": "City Care Valenzuela",
+      "lat": 14.693,
+      "lng": 120.973
+    },
+    {
+      "id": "meycauayan_doctors",
+      "name": "Meycauayan Doctors Hospital and Medical Center",
+      "lat": 14.736,
+      "lng": 120.97
+    },
+    {
+      "id": "st_michael_marilao",
+      "name": "St. Michael Hospital (Marilao)",
+      "lat": 14.764,
+      "lng": 120.9535
+    },
+    {
+      "id": "kairos_maternity",
+      "name": "Kairos Maternity & Medical Center",
+      "lat": 14.773,
+      "lng": 121.002
+    },
+    {
+      "id": "tayuman_lrt",
+      "name": "Tayuman LRT Station (Manila)",
+      "lat": 14.6167,
+      "lng": 120.9828
+    },
+    {
+      "id": "pritil_market",
+      "name": "Pritil Market (Tondo)",
+      "lat": 14.62,
+      "lng": 120.969
+    },
+    {
+      "id": "centris_qave",
+      "name": "Eton Centris / MRT Quezon Ave",
+      "lat": 14.6433,
+      "lng": 121.0378
+    },
+    {
+      "id": "puregold_monumento",
+      "name": "Puregold Monumento / Footbridge",
+      "lat": 14.6582,
+      "lng": 120.983
+    },
+    {
+      "id": "bayan_malabon",
+      "name": "Bayan Malabon / San Agustin",
+      "lat": 14.656,
+      "lng": 120.952
     }
   ],
   "legs": [
     {
       "id": "leg-1",
-      "from": "plv",
+      "from": "malinta",
       "to": "val_city_hall",
       "mode": "jeepney",
       "route_name": "Malanday - Monumento",
@@ -261,17 +375,17 @@
     },
     {
       "id": "leg-2",
-      "from": "plv",
+      "from": "malinta",
       "to": "val_city_hall",
       "mode": "walk",
       "route_name": null,
-      "distance_km": 2.0,
+      "distance_km": 2,
       "fare_type": null,
       "notes": "Walk along McArthur Highway."
     },
     {
       "id": "leg-3",
-      "from": "plv",
+      "from": "malinta",
       "to": "val_city_hall",
       "mode": "taxi",
       "route_name": null,
@@ -301,13 +415,13 @@
     },
     {
       "id": "leg-6",
-      "from": "plv",
+      "from": "malinta",
       "to": "val_city_hall",
       "mode": "tricycle",
-      "route_name": "PLV TODA",
+      "route_name": "Malinta TODA",
       "distance_km": 2.2,
       "fare_type": "tricycle",
-      "flat_fare": 50.0,
+      "flat_fare": 50,
       "notes": "Local tricycle ride. Flat fare negotiated locally."
     },
     {
@@ -363,26 +477,26 @@
     {
       "id": "leg-12",
       "from": "malanday_term",
-      "to": "plv",
+      "to": "malinta",
       "mode": "jeepney",
       "route_name": "Malanday - Monumento",
       "distance_km": 2.7,
       "fare_type": "traditional",
-      "notes": "Traditional jeepney from Malanday Terminal to PLV."
+      "notes": "Traditional jeepney from Malanday Terminal to Malinta."
     },
     {
       "id": "leg-13",
       "from": "malanday_term",
-      "to": "plv",
+      "to": "malinta",
       "mode": "jeepney",
       "route_name": "Malanday - Monumento",
       "distance_km": 2.7,
       "fare_type": "modern",
-      "notes": "Modern air-conditioned jeepney from Malanday to PLV."
+      "notes": "Modern air-conditioned jeepney from Malanday to Malinta."
     },
     {
       "id": "leg-14",
-      "from": "plv",
+      "from": "malinta",
       "to": "karuhatan_junc",
       "mode": "jeepney",
       "route_name": "Malanday - Monumento",
@@ -392,7 +506,7 @@
     },
     {
       "id": "leg-15",
-      "from": "plv",
+      "from": "malinta",
       "to": "karuhatan_junc",
       "mode": "jeepney",
       "route_name": "Malanday - Monumento",
@@ -406,7 +520,7 @@
       "to": "val_city_hall",
       "mode": "jeepney",
       "route_name": "Malanday - Monumento",
-      "distance_km": 1.0,
+      "distance_km": 1,
       "fare_type": "traditional",
       "notes": "Traditional jeepney ride to Valenzuela City Hall."
     },
@@ -416,7 +530,7 @@
       "to": "val_city_hall",
       "mode": "jeepney",
       "route_name": "Malanday - Monumento",
-      "distance_km": 1.0,
+      "distance_km": 1,
       "fare_type": "modern",
       "notes": "Modern jeepney ride to Valenzuela City Hall."
     },
@@ -448,7 +562,7 @@
       "route_name": "Malanday - Monumento",
       "distance_km": 2.5,
       "fare_type": "traditional",
-      "notes": "Traditional jeepney from Fatima to Monumento."
+      "notes": "Traditional jeepney from OLFU to Monumento."
     },
     {
       "id": "leg-21",
@@ -458,7 +572,7 @@
       "route_name": "Malanday - Monumento",
       "distance_km": 2.5,
       "fare_type": "modern",
-      "notes": "Modern air-conditioned jeepney from Fatima to Monumento."
+      "notes": "Modern air-conditioned jeepney from OLFU to Monumento."
     },
     {
       "id": "leg-22",
@@ -478,29 +592,29 @@
       "route_name": "Karuhatan TODA",
       "distance_km": 3.5,
       "fare_type": "tricycle",
-      "flat_fare": 80.0,
+      "flat_fare": 80,
       "notes": "Tricycle ride. Special fare is ₱80.00, regular shared is ₱25.00."
     },
     {
       "id": "leg-24",
-      "from": "plv",
+      "from": "malinta",
       "to": "karuhatan_junc",
       "mode": "tricycle",
-      "route_name": "PLV TODA",
+      "route_name": "Malinta TODA",
       "distance_km": 1.5,
       "fare_type": "tricycle",
-      "flat_fare": 50.0,
+      "flat_fare": 50,
       "notes": "Tricycle ride. Special fare is ₱50.00, regular shared is ₱12.00."
     },
     {
       "id": "leg-25",
-      "from": "plv",
+      "from": "malinta",
       "to": "paso_de_blas",
       "mode": "tricycle",
-      "route_name": "PLV TODA",
-      "distance_km": 3.0,
+      "route_name": "Malinta TODA",
+      "distance_km": 3,
       "fare_type": "tricycle",
-      "flat_fare": 70.0,
+      "flat_fare": 70,
       "notes": "Tricycle ride. Special fare is ₱70.00, regular shared is ₱20.00."
     },
     {
@@ -511,7 +625,7 @@
       "route_name": "VGC TODA",
       "distance_km": 1.2,
       "fare_type": "tricycle",
-      "flat_fare": 35.0,
+      "flat_fare": 35,
       "notes": "Short tricycle ride. Special fare is ₱35.00, regular shared is ₱10.00."
     },
     {
@@ -586,7 +700,7 @@
     },
     {
       "id": "leg-34",
-      "from": "plv",
+      "from": "malinta",
       "to": "karuhatan_junc",
       "mode": "walk",
       "route_name": null,
@@ -630,7 +744,7 @@
       "to": "roosevelt_lrt",
       "mode": "bus",
       "route_name": "Malanday - Monumento - Roosevelt Bus",
-      "distance_km": 12.0,
+      "distance_km": 12,
       "fare_type": "aircon",
       "notes": "Air-conditioned bus traversing McArthur Highway and EDSA."
     },
@@ -686,7 +800,7 @@
     },
     {
       "id": "leg-44",
-      "from": "plv",
+      "from": "malinta",
       "to": "monumento",
       "mode": "jeepney",
       "route_name": "Malanday - Monumento",
@@ -696,7 +810,7 @@
     },
     {
       "id": "leg-45",
-      "from": "plv",
+      "from": "malinta",
       "to": "monumento",
       "mode": "jeepney",
       "route_name": "Malanday - Monumento",
@@ -780,7 +894,7 @@
       "to": "recto",
       "mode": "jeepney",
       "route_name": "Monumento - Recto",
-      "distance_km": 6.0,
+      "distance_km": 6,
       "fare_type": "traditional",
       "notes": "Traditional jeepney from Monumento to Recto via Rizal Ave."
     },
@@ -790,7 +904,7 @@
       "to": "recto",
       "mode": "train",
       "route_name": "LRT-1",
-      "distance_km": 6.0,
+      "distance_km": 6,
       "fare_type": "estimate",
       "notes": "LRT-1 train transit between Monumento and Doroteo Jose (Recto) stations."
     },
@@ -800,7 +914,7 @@
       "to": "sm_north",
       "mode": "walk",
       "route_name": null,
-      "distance_km": 1.0,
+      "distance_km": 1,
       "fare_type": null,
       "notes": "Walk from FPJ / Roosevelt Station to SM North EDSA."
     },
@@ -850,7 +964,7 @@
       "to": "novaliches_term",
       "mode": "jeepney",
       "route_name": "VGC - Novaliches via Bagbaguin",
-      "distance_km": 7.0,
+      "distance_km": 7,
       "fare_type": "traditional",
       "notes": "Traditional jeepney ride traversing Bagbaguin and Quirino Highway."
     },
@@ -956,23 +1070,23 @@
     },
     {
       "id": "leg-71",
-      "from": "plv",
+      "from": "malinta",
       "to": "fatima_val",
       "mode": "jeepney",
       "route_name": "Malanday - Monumento",
       "distance_km": 3.3,
       "fare_type": "traditional",
-      "notes": "Direct traditional jeepney from PLV to Fatima University."
+      "notes": "Direct traditional jeepney from Malinta to OLFU."
     },
     {
       "id": "leg-72",
-      "from": "plv",
+      "from": "malinta",
       "to": "fatima_val",
       "mode": "jeepney",
       "route_name": "Malanday - Monumento",
       "distance_km": 3.3,
       "fare_type": "modern",
-      "notes": "Direct modern jeepney from PLV to Fatima University."
+      "notes": "Direct modern jeepney from Malinta to OLFU."
     },
     {
       "id": "leg-73",
@@ -990,7 +1104,7 @@
       "to": "binondo",
       "mode": "jeepney",
       "route_name": "Divisoria - Baclaran",
-      "distance_km": 1.0,
+      "distance_km": 1,
       "fare_type": "traditional",
       "notes": "Short jeepney ride traversing Juan Luna Street."
     },
@@ -1030,7 +1144,7 @@
       "to": "intramuros",
       "mode": "walk",
       "route_name": null,
-      "distance_km": 1.0,
+      "distance_km": 1,
       "fare_type": null,
       "notes": "Walk across Jones Bridge into Intramuros."
     },
@@ -1060,7 +1174,7 @@
       "to": "intramuros",
       "mode": "train",
       "route_name": "LRT-1",
-      "distance_km": 2.0,
+      "distance_km": 2,
       "fare_type": "estimate",
       "notes": "LRT-1 train from Doroteo Jose (Recto) to Central Terminal (Intramuros)."
     },
@@ -1080,7 +1194,7 @@
       "to": "recto",
       "mode": "train",
       "route_name": "LRT-1",
-      "distance_km": 6.0,
+      "distance_km": 6,
       "fare_type": "estimate",
       "notes": "LRT-1 train from Balintawak to Doroteo Jose (Recto)."
     },
@@ -1090,9 +1204,9 @@
       "to": "binondo",
       "mode": "tricycle",
       "route_name": "Divisoria-Binondo Toda",
-      "distance_km": 1.0,
+      "distance_km": 1,
       "fare_type": "tricycle",
-      "flat_fare": 30.0,
+      "flat_fare": 30,
       "notes": "Local tricycle/e-trike ride around Divisoria and Binondo Chinatown."
     },
     {
@@ -1103,7 +1217,7 @@
       "route_name": "Binondo-Intramuros Toda",
       "distance_km": 1.2,
       "fare_type": "tricycle",
-      "flat_fare": 40.0,
+      "flat_fare": 40,
       "notes": "Tricycle ride crossing Jones Bridge to Intramuros."
     },
     {
@@ -1114,7 +1228,7 @@
       "route_name": "Meycauayan-Malanday TODA",
       "distance_km": 2.2,
       "fare_type": "tricycle",
-      "flat_fare": 60.0,
+      "flat_fare": 60,
       "notes": "Border-crossing tricycle option from Meycauayan to Malanday Terminal."
     },
     {
@@ -1145,7 +1259,7 @@
       "route_name": "Recto-Divisoria TODA",
       "distance_km": 1.5,
       "fare_type": "tricycle",
-      "flat_fare": 40.0,
+      "flat_fare": 40,
       "notes": "Tricycle ride along C.M. Recto Avenue directly to Divisoria."
     },
     {
@@ -1364,9 +1478,9 @@
       "to": "central_terminal_lrt",
       "mode": "tricycle",
       "route_name": "Intramuros-Central Toda",
-      "distance_km": 1.0,
+      "distance_km": 1,
       "fare_type": "tricycle",
-      "flat_fare": 30.0,
+      "flat_fare": 30,
       "notes": "Local tricycle shuttle from Intramuros walls to Central Station."
     },
     {
@@ -1777,7 +1891,7 @@
       "route_name": "Luneta-Central Toda",
       "distance_km": 0.9,
       "fare_type": "tricycle",
-      "flat_fare": 30.0,
+      "flat_fare": 30,
       "notes": "Local tricycle ride from Rizal Park to Central LRT Station."
     },
     {
@@ -1796,7 +1910,7 @@
       "to": "sm_north",
       "mode": "walk",
       "route_name": null,
-      "distance_km": 2.0,
+      "distance_km": 2,
       "fare_type": null,
       "notes": "Walk along North Avenue."
     },
@@ -1806,7 +1920,7 @@
       "to": "cubao",
       "mode": "jeepney",
       "route_name": "Fairview - Cubao via East Ave",
-      "distance_km": 4.0,
+      "distance_km": 4,
       "fare_type": "traditional",
       "notes": "Traditional jeepney ride from Quezon Circle to Cubao."
     },
@@ -1828,7 +1942,7 @@
       "route_name": "Greenhills-Ortigas Toda",
       "distance_km": 2.8,
       "fare_type": "tricycle",
-      "flat_fare": 50.0,
+      "flat_fare": 50,
       "notes": "Negotiated tricycle ride between Greenhills and Megamall."
     },
     {
@@ -1947,7 +2061,7 @@
       "to": "cubao",
       "mode": "moto_taxi",
       "route_name": null,
-      "distance_km": 4.0,
+      "distance_km": 4,
       "fare_type": "estimate",
       "notes": "Quick motorcycle taxi option."
     },
@@ -2077,7 +2191,7 @@
       "to": "cubao",
       "mode": "taxi",
       "route_name": null,
-      "distance_km": 4.0,
+      "distance_km": 4,
       "fare_type": "taxi",
       "notes": "Direct taxi option."
     },
@@ -2137,7 +2251,7 @@
       "to": "ayala",
       "mode": "walk",
       "route_name": null,
-      "distance_km": 3.0,
+      "distance_km": 3,
       "fare_type": null,
       "notes": "Walk via McKinley Road or residential walkways to MRT Ayala."
     },
@@ -2229,7 +2343,7 @@
       "route_name": "Mapua-Central Toda",
       "distance_km": 0.8,
       "fare_type": "tricycle",
-      "flat_fare": 30.0,
+      "flat_fare": 30,
       "notes": "Local tricycle ride from Mapua campus directly to Central Station."
     },
     {
@@ -2270,7 +2384,7 @@
       "route_name": "La Mesa Toda",
       "distance_km": 4.2,
       "fare_type": "tricycle",
-      "flat_fare": 50.0,
+      "flat_fare": 50,
       "notes": "Local tricycle ride from La Mesa Eco Park to SM Fairview."
     },
     {
@@ -2629,7 +2743,7 @@
       "to": "sm_north",
       "mode": "jeepney",
       "route_name": "Novaliches - SM North via Mindanao",
-      "distance_km": 12.0,
+      "distance_km": 12,
       "fare_type": "traditional",
       "notes": "Traditional jeepney ride along Quirino Highway and Mindanao Avenue."
     },
@@ -2639,7 +2753,7 @@
       "to": "sm_north",
       "mode": "jeepney",
       "route_name": "Novaliches - SM North via Mindanao",
-      "distance_km": 12.0,
+      "distance_km": 12,
       "fare_type": "modern",
       "notes": "Modern air-conditioned jeepney along Quirino Highway and Mindanao Avenue."
     },
@@ -2659,7 +2773,7 @@
       "to": "cubao",
       "mode": "jeepney",
       "route_name": "Novaliches - Cubao",
-      "distance_km": 15.0,
+      "distance_km": 15,
       "fare_type": "traditional",
       "notes": "Traditional jeepney ride traversing Quirino Highway directly to Cubao."
     },
@@ -2669,7 +2783,7 @@
       "to": "qc_circle",
       "mode": "jeepney",
       "route_name": "España - Fairview via Commonwealth",
-      "distance_km": 11.0,
+      "distance_km": 11,
       "fare_type": "traditional",
       "notes": "Traditional jeepney along España Boulevard and Quezon Avenue to Circle."
     },
@@ -2679,7 +2793,7 @@
       "to": "qc_circle",
       "mode": "bus",
       "route_name": "PITX - Fairview via España",
-      "distance_km": 11.0,
+      "distance_km": 11,
       "fare_type": "aircon",
       "notes": "Public bus along España Boulevard and Quezon Avenue to Circle."
     },
@@ -2689,7 +2803,7 @@
       "to": "ayala",
       "mode": "jeepney",
       "route_name": "Buendia - Ayala LRT Shuttle",
-      "distance_km": 3.0,
+      "distance_km": 3,
       "fare_type": "traditional",
       "notes": "Traditional jeepney traversing Gil Puyat (Buendia) Avenue directly to Ayala Makati."
     },
@@ -2699,7 +2813,7 @@
       "to": "ayala",
       "mode": "walk",
       "route_name": null,
-      "distance_km": 3.0,
+      "distance_km": 3,
       "fare_type": null,
       "notes": "Walk east along Gil Puyat (Buendia) Avenue."
     },
@@ -2769,7 +2883,7 @@
       "to": "sm_north",
       "mode": "moto_taxi",
       "route_name": null,
-      "distance_km": 12.0,
+      "distance_km": 12,
       "fare_type": "estimate",
       "notes": "Quick motorcycle taxi option."
     },
@@ -2789,7 +2903,7 @@
       "to": "cubao",
       "mode": "moto_taxi",
       "route_name": null,
-      "distance_km": 15.0,
+      "distance_km": 15,
       "fare_type": "estimate",
       "notes": "Quick motorcycle taxi option."
     },
@@ -2799,7 +2913,7 @@
       "to": "qc_circle",
       "mode": "moto_taxi",
       "route_name": null,
-      "distance_km": 11.0,
+      "distance_km": 11,
       "fare_type": "estimate",
       "notes": "Quick motorcycle taxi option."
     },
@@ -2809,7 +2923,7 @@
       "to": "ayala",
       "mode": "moto_taxi",
       "route_name": null,
-      "distance_km": 3.0,
+      "distance_km": 3,
       "fare_type": "estimate",
       "notes": "Quick motorcycle taxi option."
     },
@@ -2859,7 +2973,7 @@
       "to": "sm_north",
       "mode": "taxi",
       "route_name": null,
-      "distance_km": 12.0,
+      "distance_km": 12,
       "fare_type": "taxi",
       "notes": "Direct taxi option."
     },
@@ -2879,7 +2993,7 @@
       "to": "cubao",
       "mode": "taxi",
       "route_name": null,
-      "distance_km": 15.0,
+      "distance_km": 15,
       "fare_type": "taxi",
       "notes": "Direct taxi option."
     },
@@ -2889,7 +3003,7 @@
       "to": "qc_circle",
       "mode": "taxi",
       "route_name": null,
-      "distance_km": 11.0,
+      "distance_km": 11,
       "fare_type": "taxi",
       "notes": "Direct taxi option."
     },
@@ -2899,7 +3013,7 @@
       "to": "ayala",
       "mode": "taxi",
       "route_name": null,
-      "distance_km": 3.0,
+      "distance_km": 3,
       "fare_type": "taxi",
       "notes": "Direct taxi option."
     },
@@ -2939,7 +3053,7 @@
       "to": "central_terminal_lrt",
       "mode": "bus",
       "route_name": "Balagtas - PITX via Avenida",
-      "distance_km": 15.0,
+      "distance_km": 15,
       "fare_type": "aircon",
       "notes": "Bulacan bus traversing Avenida and Roxas Boulevard."
     },
@@ -2949,7 +3063,7 @@
       "to": "gil_puyat",
       "mode": "bus",
       "route_name": "Balagtas - PITX via Taft",
-      "distance_km": 22.0,
+      "distance_km": 22,
       "fare_type": "aircon",
       "notes": "Direct NLEX bus heading down to Taft Avenue (Gil Puyat LRT)."
     },
@@ -3019,7 +3133,7 @@
       "to": "central_terminal_lrt",
       "mode": "moto_taxi",
       "route_name": null,
-      "distance_km": 15.0,
+      "distance_km": 15,
       "fare_type": "estimate",
       "notes": "Quick motorcycle taxi option."
     },
@@ -3029,7 +3143,7 @@
       "to": "gil_puyat",
       "mode": "moto_taxi",
       "route_name": null,
-      "distance_km": 22.0,
+      "distance_km": 22,
       "fare_type": "estimate",
       "notes": "Quick motorcycle taxi option."
     },
@@ -3069,7 +3183,7 @@
       "to": "central_terminal_lrt",
       "mode": "taxi",
       "route_name": null,
-      "distance_km": 15.0,
+      "distance_km": 15,
       "fare_type": "taxi",
       "notes": "Direct taxi option."
     },
@@ -3079,7 +3193,7 @@
       "to": "gil_puyat",
       "mode": "taxi",
       "route_name": null,
-      "distance_km": 22.0,
+      "distance_km": 22,
       "fare_type": "taxi",
       "notes": "Direct taxi option."
     },
@@ -3219,7 +3333,7 @@
       "to": "dlsu",
       "mode": "walk",
       "route_name": null,
-      "distance_km": 3.0,
+      "distance_km": 3,
       "fare_type": null,
       "notes": "Walk along Harrison and Vito Cruz streets directly to DLSU Taft."
     },
@@ -3229,7 +3343,7 @@
       "to": "santolan_lrt2",
       "mode": "train",
       "route_name": "LRT-2",
-      "distance_km": 3.0,
+      "distance_km": 3,
       "fare_type": "estimate",
       "notes": "LRT-2 train from Katipunan Station to Santolan."
     },
@@ -3239,7 +3353,7 @@
       "to": "antipolo_lrt2",
       "mode": "train",
       "route_name": "LRT-2",
-      "distance_km": 7.0,
+      "distance_km": 7,
       "fare_type": "estimate",
       "notes": "LRT-2 train extension from Katipunan Station directly to Antipolo."
     },
@@ -3249,7 +3363,7 @@
       "to": "santolan_lrt2",
       "mode": "jeepney",
       "route_name": "Marcos Highway Loop",
-      "distance_km": 3.0,
+      "distance_km": 3,
       "fare_type": "traditional",
       "notes": "Traditional jeepney along Marcos Highway."
     },
@@ -3259,7 +3373,7 @@
       "to": "antipolo_lrt2",
       "mode": "jeepney",
       "route_name": "Cogeo - Cubao via Marcos Highway",
-      "distance_km": 7.0,
+      "distance_km": 7,
       "fare_type": "traditional",
       "notes": "Traditional jeepney traversing Marcos Highway to Antipolo."
     },
@@ -3329,7 +3443,7 @@
       "to": "santolan_lrt2",
       "mode": "moto_taxi",
       "route_name": null,
-      "distance_km": 3.0,
+      "distance_km": 3,
       "fare_type": "estimate",
       "notes": "Quick motorcycle taxi option."
     },
@@ -3339,7 +3453,7 @@
       "to": "antipolo_lrt2",
       "mode": "moto_taxi",
       "route_name": null,
-      "distance_km": 7.0,
+      "distance_km": 7,
       "fare_type": "estimate",
       "notes": "Quick motorcycle taxi option."
     },
@@ -3409,7 +3523,7 @@
       "to": "santolan_lrt2",
       "mode": "taxi",
       "route_name": null,
-      "distance_km": 3.0,
+      "distance_km": 3,
       "fare_type": "taxi",
       "notes": "Direct taxi option."
     },
@@ -3419,9 +3533,932 @@
       "to": "antipolo_lrt2",
       "mode": "taxi",
       "route_name": null,
-      "distance_km": 7.0,
+      "distance_km": 7,
       "fare_type": "taxi",
       "notes": "Direct taxi option."
+    },
+    {
+      "id": "leg-317",
+      "from": "sm_north",
+      "to": "east_ave_med_ctr",
+      "mode": "jeepney",
+      "route_name": "SM North - UP Diliman via East Ave",
+      "distance_km": 3.5,
+      "fare_type": "traditional",
+      "notes": "Find jeep terminal going to UP Diliman at SM North. ALWAYS magsabi sa driver saan bababa! (✨ Note: matagal mapuno jeep to UP if morning)"
+    },
+    {
+      "id": "leg-318",
+      "from": "east_ave_med_ctr",
+      "to": "sm_north",
+      "mode": "jeepney",
+      "route_name": "SM North - UP Diliman via East Ave",
+      "distance_km": 3.5,
+      "fare_type": "traditional",
+      "notes": "Find jeep terminal going to UP Diliman at SM North. ALWAYS magsabi sa driver saan bababa! (✨ Note: matagal mapuno jeep to UP if morning)"
+    },
+    {
+      "id": "leg-319",
+      "from": "sm_north",
+      "to": "east_ave_med_ctr",
+      "mode": "jeepney",
+      "route_name": "SM North - QC Hall via East Ave",
+      "distance_km": 3.5,
+      "fare_type": "modern",
+      "notes": "Modern air-conditioned jeepney along East Ave."
+    },
+    {
+      "id": "leg-320",
+      "from": "east_ave_med_ctr",
+      "to": "sm_north",
+      "mode": "jeepney",
+      "route_name": "SM North - QC Hall via East Ave",
+      "distance_km": 3.5,
+      "fare_type": "modern",
+      "notes": "Modern air-conditioned jeepney along East Ave."
+    },
+    {
+      "id": "leg-321",
+      "from": "sm_north",
+      "to": "centris_qave",
+      "mode": "bus",
+      "route_name": "EDSA Carousel (SM North - Quezon Ave)",
+      "distance_km": 1.8,
+      "fare_type": "aircon",
+      "notes": "EDSA Carousel bus to Quezon Avenue Station."
+    },
+    {
+      "id": "leg-322",
+      "from": "centris_qave",
+      "to": "sm_north",
+      "mode": "bus",
+      "route_name": "EDSA Carousel (SM North - Quezon Ave)",
+      "distance_km": 1.8,
+      "fare_type": "aircon",
+      "notes": "EDSA Carousel bus to Quezon Avenue Station."
+    },
+    {
+      "id": "leg-323",
+      "from": "centris_qave",
+      "to": "east_ave_med_ctr",
+      "mode": "tricycle",
+      "route_name": "Centris TODA",
+      "distance_km": 1.6,
+      "fare_type": "tricycle",
+      "flat_fare": 45,
+      "notes": "Walk until Centris, then take tricycle directly to East Avenue Medical Center. ALWAYS magsabi sa driver saan bababa!"
+    },
+    {
+      "id": "leg-324",
+      "from": "east_ave_med_ctr",
+      "to": "centris_qave",
+      "mode": "tricycle",
+      "route_name": "Centris TODA",
+      "distance_km": 1.6,
+      "fare_type": "tricycle",
+      "flat_fare": 45,
+      "notes": "Walk until Centris, then take tricycle directly to East Avenue Medical Center. ALWAYS magsabi sa driver saan bababa!"
+    },
+    {
+      "id": "leg-325",
+      "from": "centris_qave",
+      "to": "east_ave_med_ctr",
+      "mode": "jeepney",
+      "route_name": "Quezon Ave - Philcoa / East Ave",
+      "distance_km": 1.6,
+      "fare_type": "traditional",
+      "notes": "Jeep from Centris Quezon Ave turning toward East Avenue."
+    },
+    {
+      "id": "leg-326",
+      "from": "east_ave_med_ctr",
+      "to": "centris_qave",
+      "mode": "jeepney",
+      "route_name": "Quezon Ave - Philcoa / East Ave",
+      "distance_km": 1.6,
+      "fare_type": "traditional",
+      "notes": "Jeep from Centris Quezon Ave turning toward East Avenue."
+    },
+    {
+      "id": "leg-327",
+      "from": "qc_circle",
+      "to": "east_ave_med_ctr",
+      "mode": "jeepney",
+      "route_name": "East Avenue Loop",
+      "distance_km": 1.2,
+      "fare_type": "traditional",
+      "notes": "Short jeep ride along East Avenue from Quezon Circle."
+    },
+    {
+      "id": "leg-328",
+      "from": "east_ave_med_ctr",
+      "to": "qc_circle",
+      "mode": "jeepney",
+      "route_name": "East Avenue Loop",
+      "distance_km": 1.2,
+      "fare_type": "traditional",
+      "notes": "Short jeep ride along East Avenue from Quezon Circle."
+    },
+    {
+      "id": "leg-329",
+      "from": "karuhatan_junc",
+      "to": "val_med_ctr",
+      "mode": "walk",
+      "route_name": null,
+      "distance_km": 0.3,
+      "fare_type": null,
+      "notes": "Quick 3-minute walk from Karuhatan Junction along Padrigal St."
+    },
+    {
+      "id": "leg-330",
+      "from": "val_med_ctr",
+      "to": "karuhatan_junc",
+      "mode": "walk",
+      "route_name": null,
+      "distance_km": 0.3,
+      "fare_type": null,
+      "notes": "Quick 3-minute walk from Karuhatan Junction along Padrigal St."
+    },
+    {
+      "id": "leg-331",
+      "from": "val_city_hall",
+      "to": "val_med_ctr",
+      "mode": "jeepney",
+      "route_name": "Malanday - Monumento",
+      "distance_km": 0.7,
+      "fare_type": "traditional",
+      "notes": "Short jeep hop along McArthur Highway to Karuhatan / Padrigal."
+    },
+    {
+      "id": "leg-332",
+      "from": "val_med_ctr",
+      "to": "val_city_hall",
+      "mode": "jeepney",
+      "route_name": "Malanday - Monumento",
+      "distance_km": 0.7,
+      "fare_type": "traditional",
+      "notes": "Short jeep hop along McArthur Highway to Karuhatan / Padrigal."
+    },
+    {
+      "id": "leg-333",
+      "from": "malinta",
+      "to": "val_med_ctr",
+      "mode": "jeepney",
+      "route_name": "Malanday - Monumento",
+      "distance_km": 1.5,
+      "fare_type": "traditional",
+      "notes": "Direct jeep south along McArthur Highway to Valenzuela Medical Center. ALWAYS magsabi sa driver saan bababa!"
+    },
+    {
+      "id": "leg-334",
+      "from": "val_med_ctr",
+      "to": "malinta",
+      "mode": "jeepney",
+      "route_name": "Malanday - Monumento",
+      "distance_km": 1.5,
+      "fare_type": "traditional",
+      "notes": "Direct jeep south along McArthur Highway to Valenzuela Medical Center. ALWAYS magsabi sa driver saan bababa!"
+    },
+    {
+      "id": "leg-335",
+      "from": "malinta",
+      "to": "val_med_ctr",
+      "mode": "tricycle",
+      "route_name": "Malinta TODA",
+      "distance_km": 1.5,
+      "fare_type": "tricycle",
+      "flat_fare": 40,
+      "notes": "Local tricycle to VMC."
+    },
+    {
+      "id": "leg-336",
+      "from": "val_med_ctr",
+      "to": "malinta",
+      "mode": "tricycle",
+      "route_name": "Malinta TODA",
+      "distance_km": 1.5,
+      "fare_type": "tricycle",
+      "flat_fare": 40,
+      "notes": "Local tricycle to VMC."
+    },
+    {
+      "id": "leg-337",
+      "from": "balintawak_lrt",
+      "to": "qc_gen_hosp",
+      "mode": "jeepney",
+      "route_name": "Balintawak - Project 8 / Muñoz",
+      "distance_km": 1.8,
+      "fare_type": "traditional",
+      "notes": "Jeep along EDSA / Seminary Road to QC General Hospital."
+    },
+    {
+      "id": "leg-338",
+      "from": "qc_gen_hosp",
+      "to": "balintawak_lrt",
+      "mode": "jeepney",
+      "route_name": "Balintawak - Project 8 / Muñoz",
+      "distance_km": 1.8,
+      "fare_type": "traditional",
+      "notes": "Jeep along EDSA / Seminary Road to QC General Hospital."
+    },
+    {
+      "id": "leg-339",
+      "from": "sm_north",
+      "to": "qc_gen_hosp",
+      "mode": "jeepney",
+      "route_name": "SM North - Project 8 via Seminary Rd",
+      "distance_km": 1.9,
+      "fare_type": "traditional",
+      "notes": "Jeep from SM North to QC General Hospital gate."
+    },
+    {
+      "id": "leg-340",
+      "from": "qc_gen_hosp",
+      "to": "sm_north",
+      "mode": "jeepney",
+      "route_name": "SM North - Project 8 via Seminary Rd",
+      "distance_km": 1.9,
+      "fare_type": "traditional",
+      "notes": "Jeep from SM North to QC General Hospital gate."
+    },
+    {
+      "id": "leg-341",
+      "from": "roosevelt_lrt",
+      "to": "qc_gen_hosp",
+      "mode": "tricycle",
+      "route_name": "Muñoz TODA",
+      "distance_km": 1.2,
+      "fare_type": "tricycle",
+      "flat_fare": 35,
+      "notes": "Tricycle from Roosevelt / Muñoz station along Seminary Road."
+    },
+    {
+      "id": "leg-342",
+      "from": "qc_gen_hosp",
+      "to": "roosevelt_lrt",
+      "mode": "tricycle",
+      "route_name": "Muñoz TODA",
+      "distance_km": 1.2,
+      "fare_type": "tricycle",
+      "flat_fare": 35,
+      "notes": "Tricycle from Roosevelt / Muñoz station along Seminary Road."
+    },
+    {
+      "id": "leg-343",
+      "from": "monumento",
+      "to": "tayuman_lrt",
+      "mode": "train",
+      "route_name": "LRT-1 Line",
+      "distance_km": 4.8,
+      "fare_type": "estimate",
+      "notes": "Take LRT-1 from Monumento to Tayuman Station."
+    },
+    {
+      "id": "leg-344",
+      "from": "tayuman_lrt",
+      "to": "monumento",
+      "mode": "train",
+      "route_name": "LRT-1 Line",
+      "distance_km": 4.8,
+      "fare_type": "estimate",
+      "notes": "Take LRT-1 from Monumento to Tayuman Station."
+    },
+    {
+      "id": "leg-345",
+      "from": "monumento",
+      "to": "tayuman_lrt",
+      "mode": "jeepney",
+      "route_name": "Monumento - Recto via Rizal Ave",
+      "distance_km": 4.8,
+      "fare_type": "traditional",
+      "notes": "Jeepney along Rizal Avenue to Tayuman."
+    },
+    {
+      "id": "leg-346",
+      "from": "tayuman_lrt",
+      "to": "monumento",
+      "mode": "jeepney",
+      "route_name": "Monumento - Recto via Rizal Ave",
+      "distance_km": 4.8,
+      "fare_type": "traditional",
+      "notes": "Jeepney along Rizal Avenue to Tayuman."
+    },
+    {
+      "id": "leg-347",
+      "from": "tayuman_lrt",
+      "to": "pritil_market",
+      "mode": "jeepney",
+      "route_name": "Tayuman - Pritil",
+      "distance_km": 1.6,
+      "fare_type": "traditional",
+      "notes": "Ride Pritil jeep from Tayuman station. ALWAYS magsabi sa driver saan bababa!"
+    },
+    {
+      "id": "leg-348",
+      "from": "pritil_market",
+      "to": "tayuman_lrt",
+      "mode": "jeepney",
+      "route_name": "Tayuman - Pritil",
+      "distance_km": 1.6,
+      "fare_type": "traditional",
+      "notes": "Ride Pritil jeep from Tayuman station. ALWAYS magsabi sa driver saan bababa!"
+    },
+    {
+      "id": "leg-349",
+      "from": "pritil_market",
+      "to": "tondo_med_ctr",
+      "mode": "jeepney",
+      "route_name": "Pritil - Gasak via H. Lopez Blvd",
+      "distance_km": 1.3,
+      "fare_type": "traditional",
+      "notes": "Ride Gasak jeep along Honorio Lopez Blvd to Tondo Medical Center gate. ALWAYS magsabi sa driver saan bababa!"
+    },
+    {
+      "id": "leg-350",
+      "from": "tondo_med_ctr",
+      "to": "pritil_market",
+      "mode": "jeepney",
+      "route_name": "Pritil - Gasak via H. Lopez Blvd",
+      "distance_km": 1.3,
+      "fare_type": "traditional",
+      "notes": "Ride Gasak jeep along Honorio Lopez Blvd to Tondo Medical Center gate. ALWAYS magsabi sa driver saan bababa!"
+    },
+    {
+      "id": "leg-351",
+      "from": "monumento",
+      "to": "puregold_monumento",
+      "mode": "walk",
+      "route_name": null,
+      "distance_km": 0.2,
+      "fare_type": null,
+      "notes": "Tawid footbridge from Hypermarket Monumento to Puregold."
+    },
+    {
+      "id": "leg-352",
+      "from": "puregold_monumento",
+      "to": "monumento",
+      "mode": "walk",
+      "route_name": null,
+      "distance_km": 0.2,
+      "fare_type": null,
+      "notes": "Tawid footbridge from Hypermarket Monumento to Puregold."
+    },
+    {
+      "id": "leg-353",
+      "from": "puregold_monumento",
+      "to": "bayan_malabon",
+      "mode": "jeepney",
+      "route_name": "Monumento - Bayan Malabon",
+      "distance_km": 3.2,
+      "fare_type": "traditional",
+      "notes": "Board Bayan Malabon jeep near Puregold Monumento."
+    },
+    {
+      "id": "leg-354",
+      "from": "bayan_malabon",
+      "to": "puregold_monumento",
+      "mode": "jeepney",
+      "route_name": "Monumento - Bayan Malabon",
+      "distance_km": 3.2,
+      "fare_type": "traditional",
+      "notes": "Board Bayan Malabon jeep near Puregold Monumento."
+    },
+    {
+      "id": "leg-355",
+      "from": "bayan_malabon",
+      "to": "tondo_med_ctr",
+      "mode": "jeepney",
+      "route_name": "Malabon - Divisoria via Honorio Lopez",
+      "distance_km": 3.5,
+      "fare_type": "traditional",
+      "notes": "Ride Divisoria jeep passing Honorio Lopez Blvd to Tondo Medical Center. ALWAYS magsabi sa driver saan bababa!"
+    },
+    {
+      "id": "leg-356",
+      "from": "tondo_med_ctr",
+      "to": "bayan_malabon",
+      "mode": "jeepney",
+      "route_name": "Malabon - Divisoria via Honorio Lopez",
+      "distance_km": 3.5,
+      "fare_type": "traditional",
+      "notes": "Ride Divisoria jeep passing Honorio Lopez Blvd to Tondo Medical Center. ALWAYS magsabi sa driver saan bababa!"
+    },
+    {
+      "id": "leg-357",
+      "from": "tayuman_lrt",
+      "to": "fabella_med_ctr",
+      "mode": "walk",
+      "route_name": null,
+      "distance_km": 0.5,
+      "fare_type": null,
+      "notes": "5-minute walk along Rizal Ave / Lope de Vega into San Lazaro Compound."
+    },
+    {
+      "id": "leg-358",
+      "from": "fabella_med_ctr",
+      "to": "tayuman_lrt",
+      "mode": "walk",
+      "route_name": null,
+      "distance_km": 0.5,
+      "fare_type": null,
+      "notes": "5-minute walk along Rizal Ave / Lope de Vega into San Lazaro Compound."
+    },
+    {
+      "id": "leg-359",
+      "from": "recto",
+      "to": "fabella_med_ctr",
+      "mode": "jeepney",
+      "route_name": "Sta. Cruz - Monumento via Rizal Ave",
+      "distance_km": 1.1,
+      "fare_type": "traditional",
+      "notes": "Jeep northbound to San Lazaro / Fabella Memorial Hospital."
+    },
+    {
+      "id": "leg-360",
+      "from": "fabella_med_ctr",
+      "to": "recto",
+      "mode": "jeepney",
+      "route_name": "Sta. Cruz - Monumento via Rizal Ave",
+      "distance_km": 1.1,
+      "fare_type": "traditional",
+      "notes": "Jeep northbound to San Lazaro / Fabella Memorial Hospital."
+    },
+    {
+      "id": "leg-361",
+      "from": "bayan_malabon",
+      "to": "malabon_health_dept",
+      "mode": "walk",
+      "route_name": null,
+      "distance_km": 0.3,
+      "fare_type": null,
+      "notes": "Short walk along F. Sevilla Blvd to Malabon Health Department."
+    },
+    {
+      "id": "leg-362",
+      "from": "malabon_health_dept",
+      "to": "bayan_malabon",
+      "mode": "walk",
+      "route_name": null,
+      "distance_km": 0.3,
+      "fare_type": null,
+      "notes": "Short walk along F. Sevilla Blvd to Malabon Health Department."
+    },
+    {
+      "id": "leg-363",
+      "from": "monumento",
+      "to": "malabon_health_dept",
+      "mode": "jeepney",
+      "route_name": "Monumento - Malabon Bayan",
+      "distance_km": 3.4,
+      "fare_type": "traditional",
+      "notes": "Jeep from Monumento to Malabon City Hall / Health Dept on F. Sevilla."
+    },
+    {
+      "id": "leg-364",
+      "from": "malabon_health_dept",
+      "to": "monumento",
+      "mode": "jeepney",
+      "route_name": "Monumento - Malabon Bayan",
+      "distance_km": 3.4,
+      "fare_type": "traditional",
+      "notes": "Jeep from Monumento to Malabon City Hall / Health Dept on F. Sevilla."
+    },
+    {
+      "id": "leg-365",
+      "from": "bayan_malabon",
+      "to": "ospital_ng_malabon",
+      "mode": "jeepney",
+      "route_name": "Malabon - Navotas via Longos",
+      "distance_km": 1.5,
+      "fare_type": "traditional",
+      "notes": "Jeep to Maya-Maya St, Longos (Ospital ng Malabon)."
+    },
+    {
+      "id": "leg-366",
+      "from": "ospital_ng_malabon",
+      "to": "bayan_malabon",
+      "mode": "jeepney",
+      "route_name": "Malabon - Navotas via Longos",
+      "distance_km": 1.5,
+      "fare_type": "traditional",
+      "notes": "Jeep to Maya-Maya St, Longos (Ospital ng Malabon)."
+    },
+    {
+      "id": "leg-367",
+      "from": "monumento",
+      "to": "ospital_ng_malabon",
+      "mode": "jeepney",
+      "route_name": "Monumento - Dagat-Dagatan / Longos",
+      "distance_km": 2.8,
+      "fare_type": "traditional",
+      "notes": "Direct jeep from Monumento to Ospital ng Malabon."
+    },
+    {
+      "id": "leg-368",
+      "from": "ospital_ng_malabon",
+      "to": "monumento",
+      "mode": "jeepney",
+      "route_name": "Monumento - Dagat-Dagatan / Longos",
+      "distance_km": 2.8,
+      "fare_type": "traditional",
+      "notes": "Direct jeep from Monumento to Ospital ng Malabon."
+    },
+    {
+      "id": "leg-369",
+      "from": "tayuman_lrt",
+      "to": "ospital_ng_sampaloc",
+      "mode": "jeepney",
+      "route_name": "Tayuman - Lardizabal / Sampaloc",
+      "distance_km": 2.2,
+      "fare_type": "traditional",
+      "notes": "Tawid from Tayuman LRT until stoplight, then ride Sampaloc/Lardizabal jeep to Ospital ng Sampaloc (Geronimo St). ALWAYS magsabi sa driver saan bababa!"
+    },
+    {
+      "id": "leg-370",
+      "from": "ospital_ng_sampaloc",
+      "to": "tayuman_lrt",
+      "mode": "jeepney",
+      "route_name": "Tayuman - Lardizabal / Sampaloc",
+      "distance_km": 2.2,
+      "fare_type": "traditional",
+      "notes": "Tawid from Tayuman LRT until stoplight, then ride Sampaloc/Lardizabal jeep to Ospital ng Sampaloc (Geronimo St). ALWAYS magsabi sa driver saan bababa!"
+    },
+    {
+      "id": "leg-371",
+      "from": "ust",
+      "to": "ospital_ng_sampaloc",
+      "mode": "jeepney",
+      "route_name": "España - Balic-Balic / Sampaloc",
+      "distance_km": 1.4,
+      "fare_type": "traditional",
+      "notes": "Jeep from España / UST to Ospital ng Sampaloc on Geronimo St."
+    },
+    {
+      "id": "leg-372",
+      "from": "ospital_ng_sampaloc",
+      "to": "ust",
+      "mode": "jeepney",
+      "route_name": "España - Balic-Balic / Sampaloc",
+      "distance_km": 1.4,
+      "fare_type": "traditional",
+      "notes": "Jeep from España / UST to Ospital ng Sampaloc on Geronimo St."
+    },
+    {
+      "id": "leg-373",
+      "from": "tayuman_lrt",
+      "to": "ospital_ng_tondo",
+      "mode": "jeepney",
+      "route_name": "Tayuman - Abad Santos / Tondo",
+      "distance_km": 1.1,
+      "fare_type": "traditional",
+      "notes": "Jeep along Jose Abad Santos Ave to Ospital ng Tondo."
+    },
+    {
+      "id": "leg-374",
+      "from": "ospital_ng_tondo",
+      "to": "tayuman_lrt",
+      "mode": "jeepney",
+      "route_name": "Tayuman - Abad Santos / Tondo",
+      "distance_km": 1.1,
+      "fare_type": "traditional",
+      "notes": "Jeep along Jose Abad Santos Ave to Ospital ng Tondo."
+    },
+    {
+      "id": "leg-375",
+      "from": "recto",
+      "to": "ospital_ng_tondo",
+      "mode": "jeepney",
+      "route_name": "Divisoria - Abad Santos / Blumentritt",
+      "distance_km": 1.4,
+      "fare_type": "traditional",
+      "notes": "Jeep northbound along Abad Santos to Ospital ng Tondo."
+    },
+    {
+      "id": "leg-376",
+      "from": "ospital_ng_tondo",
+      "to": "recto",
+      "mode": "jeepney",
+      "route_name": "Divisoria - Abad Santos / Blumentritt",
+      "distance_km": 1.4,
+      "fare_type": "traditional",
+      "notes": "Jeep northbound along Abad Santos to Ospital ng Tondo."
+    },
+    {
+      "id": "leg-377",
+      "from": "divisoria",
+      "to": "justice_abad_santos",
+      "mode": "walk",
+      "route_name": null,
+      "distance_km": 0.6,
+      "fare_type": null,
+      "notes": "Quick 7-minute walk along Numancia St in San Nicolas/Binondo."
+    },
+    {
+      "id": "leg-378",
+      "from": "justice_abad_santos",
+      "to": "divisoria",
+      "mode": "walk",
+      "route_name": null,
+      "distance_km": 0.6,
+      "fare_type": null,
+      "notes": "Quick 7-minute walk along Numancia St in San Nicolas/Binondo."
+    },
+    {
+      "id": "leg-379",
+      "from": "binondo",
+      "to": "justice_abad_santos",
+      "mode": "walk",
+      "route_name": null,
+      "distance_km": 0.5,
+      "fare_type": null,
+      "notes": "Walk from Binondo Church / Plaza San Lorenzo Ruiz to Numancia St."
+    },
+    {
+      "id": "leg-380",
+      "from": "justice_abad_santos",
+      "to": "binondo",
+      "mode": "walk",
+      "route_name": null,
+      "distance_km": 0.5,
+      "fare_type": null,
+      "notes": "Walk from Binondo Church / Plaza San Lorenzo Ruiz to Numancia St."
+    },
+    {
+      "id": "leg-381",
+      "from": "recto",
+      "to": "justice_abad_santos",
+      "mode": "jeepney",
+      "route_name": "Recto - Divisoria / San Nicolas",
+      "distance_km": 1.2,
+      "fare_type": "traditional",
+      "notes": "Jeep from Recto to Divisoria, then walk to Justice Abad Santos General Hospital."
+    },
+    {
+      "id": "leg-382",
+      "from": "justice_abad_santos",
+      "to": "recto",
+      "mode": "jeepney",
+      "route_name": "Recto - Divisoria / San Nicolas",
+      "distance_km": 1.2,
+      "fare_type": "traditional",
+      "notes": "Jeep from Recto to Divisoria, then walk to Justice Abad Santos General Hospital."
+    },
+    {
+      "id": "leg-383",
+      "from": "val_city_hall",
+      "to": "city_care_valenzuela",
+      "mode": "jeepney",
+      "route_name": "Malanday - Monumento",
+      "distance_km": 1.4,
+      "fare_type": "traditional",
+      "notes": "Jeep along McArthur Highway to City Care Valenzuela."
+    },
+    {
+      "id": "leg-384",
+      "from": "city_care_valenzuela",
+      "to": "val_city_hall",
+      "mode": "jeepney",
+      "route_name": "Malanday - Monumento",
+      "distance_km": 1.4,
+      "fare_type": "traditional",
+      "notes": "Jeep along McArthur Highway to City Care Valenzuela."
+    },
+    {
+      "id": "leg-385",
+      "from": "malinta",
+      "to": "city_care_valenzuela",
+      "mode": "walk",
+      "route_name": null,
+      "distance_km": 0.8,
+      "fare_type": null,
+      "notes": "Short walk or tricycle from Malinta to City Care Valenzuela."
+    },
+    {
+      "id": "leg-386",
+      "from": "city_care_valenzuela",
+      "to": "malinta",
+      "mode": "walk",
+      "route_name": null,
+      "distance_km": 0.8,
+      "fare_type": null,
+      "notes": "Short walk or tricycle from Malinta to City Care Valenzuela."
+    },
+    {
+      "id": "leg-387",
+      "from": "malinta",
+      "to": "city_care_valenzuela",
+      "mode": "tricycle",
+      "route_name": "Malinta TODA",
+      "distance_km": 0.8,
+      "fare_type": "tricycle",
+      "flat_fare": 30,
+      "notes": "Direct tricycle from Malinta."
+    },
+    {
+      "id": "leg-388",
+      "from": "city_care_valenzuela",
+      "to": "malinta",
+      "mode": "tricycle",
+      "route_name": "Malinta TODA",
+      "distance_km": 0.8,
+      "fare_type": "tricycle",
+      "flat_fare": 30,
+      "notes": "Direct tricycle from Malinta."
+    },
+    {
+      "id": "leg-389",
+      "from": "meycauayan",
+      "to": "meycauayan_doctors",
+      "mode": "tricycle",
+      "route_name": "Meycauayan Bayan TODA",
+      "distance_km": 1.8,
+      "fare_type": "tricycle",
+      "flat_fare": 40,
+      "notes": "Tricycle from Meycauayan McArthur Highway to MDHMC."
+    },
+    {
+      "id": "leg-390",
+      "from": "meycauayan_doctors",
+      "to": "meycauayan",
+      "mode": "tricycle",
+      "route_name": "Meycauayan Bayan TODA",
+      "distance_km": 1.8,
+      "fare_type": "tricycle",
+      "flat_fare": 40,
+      "notes": "Tricycle from Meycauayan McArthur Highway to MDHMC."
+    },
+    {
+      "id": "leg-391",
+      "from": "malanday_term",
+      "to": "meycauayan_doctors",
+      "mode": "jeepney",
+      "route_name": "Malanday - Meycauayan / Marilao",
+      "distance_km": 3.2,
+      "fare_type": "traditional",
+      "notes": "Jeep northbound from Malanday Terminal towards Meycauayan Doctors."
+    },
+    {
+      "id": "leg-392",
+      "from": "meycauayan_doctors",
+      "to": "malanday_term",
+      "mode": "jeepney",
+      "route_name": "Malanday - Meycauayan / Marilao",
+      "distance_km": 3.2,
+      "fare_type": "traditional",
+      "notes": "Jeep northbound from Malanday Terminal towards Meycauayan Doctors."
+    },
+    {
+      "id": "leg-393",
+      "from": "meycauayan",
+      "to": "st_michael_marilao",
+      "mode": "jeepney",
+      "route_name": "Meycauayan - Marilao / Balagtas",
+      "distance_km": 3.4,
+      "fare_type": "traditional",
+      "notes": "Jeep along McArthur Highway to Abangan Sur, Marilao (St. Michael Hospital)."
+    },
+    {
+      "id": "leg-394",
+      "from": "st_michael_marilao",
+      "to": "meycauayan",
+      "mode": "jeepney",
+      "route_name": "Meycauayan - Marilao / Balagtas",
+      "distance_km": 3.4,
+      "fare_type": "traditional",
+      "notes": "Jeep along McArthur Highway to Abangan Sur, Marilao (St. Michael Hospital)."
+    },
+    {
+      "id": "leg-395",
+      "from": "malanday_term",
+      "to": "st_michael_marilao",
+      "mode": "jeepney",
+      "route_name": "Malanday - Marilao / Bocaue",
+      "distance_km": 5.6,
+      "fare_type": "traditional",
+      "notes": "Direct jeep northbound along McArthur Highway to St. Michael Hospital."
+    },
+    {
+      "id": "leg-396",
+      "from": "st_michael_marilao",
+      "to": "malanday_term",
+      "mode": "jeepney",
+      "route_name": "Malanday - Marilao / Bocaue",
+      "distance_km": 5.6,
+      "fare_type": "traditional",
+      "notes": "Direct jeep northbound along McArthur Highway to St. Michael Hospital."
+    },
+    {
+      "id": "leg-397",
+      "from": "st_michael_marilao",
+      "to": "kairos_maternity",
+      "mode": "tricycle",
+      "route_name": "Marilao TODA",
+      "distance_km": 3.1,
+      "fare_type": "tricycle",
+      "flat_fare": 50,
+      "notes": "Tricycle from Marilao highway to Kairos Maternity & Medical Center."
+    },
+    {
+      "id": "leg-398",
+      "from": "kairos_maternity",
+      "to": "st_michael_marilao",
+      "mode": "tricycle",
+      "route_name": "Marilao TODA",
+      "distance_km": 3.1,
+      "fare_type": "tricycle",
+      "flat_fare": 50,
+      "notes": "Tricycle from Marilao highway to Kairos Maternity & Medical Center."
+    },
+    {
+      "id": "leg-399",
+      "from": "novaliches_term",
+      "to": "kairos_maternity",
+      "mode": "jeepney",
+      "route_name": "Novaliches - Muzon / SJDM",
+      "distance_km": 7.2,
+      "fare_type": "traditional",
+      "notes": "Jeep from Novaliches Terminal heading towards Muzon / Kairos."
+    },
+    {
+      "id": "leg-400",
+      "from": "kairos_maternity",
+      "to": "novaliches_term",
+      "mode": "jeepney",
+      "route_name": "Novaliches - Muzon / SJDM",
+      "distance_km": 7.2,
+      "fare_type": "traditional",
+      "notes": "Jeep from Novaliches Terminal heading towards Muzon / Kairos."
+    },
+    {
+      "id": "leg-401",
+      "from": "tayuman_lrt",
+      "to": "recto",
+      "mode": "train",
+      "route_name": "LRT-1 Line",
+      "distance_km": 1.4,
+      "fare_type": "estimate",
+      "notes": "LRT-1 between Tayuman and Doroteo Jose / Recto."
+    },
+    {
+      "id": "leg-402",
+      "from": "fatima_val",
+      "to": "val_med_ctr",
+      "mode": "jeepney",
+      "route_name": "Malanday - Monumento",
+      "distance_km": 1.2,
+      "fare_type": "traditional",
+      "notes": "Direct Malanday-bound jeepney along McArthur Highway between OLFU and Karuhatan Junction / Valenzuela Medical Center."
+    },
+    {
+      "id": "leg-403",
+      "from": "fatima_val",
+      "to": "val_med_ctr",
+      "mode": "tricycle",
+      "route_name": "Karuhatan TODA",
+      "distance_km": 1.2,
+      "fare_type": "tricycle",
+      "flat_fare": 15,
+      "notes": "Local special/shared tricycle between OLFU and Valenzuela Medical Center."
+    },
+    {
+      "id": "leg-404",
+      "from": "monumento",
+      "to": "val_med_ctr",
+      "mode": "jeepney",
+      "route_name": "Malanday - Monumento",
+      "distance_km": 3.8,
+      "fare_type": "traditional",
+      "notes": "Direct Malanday-bound jeepney along McArthur Highway between Monumento and Karuhatan / VMC."
+    },
+    {
+      "id": "leg-405",
+      "from": "fatima_val",
+      "to": "city_care_valenzuela",
+      "mode": "jeepney",
+      "route_name": "Malanday - Monumento",
+      "distance_km": 2.5,
+      "fare_type": "traditional",
+      "notes": "Direct McArthur Highway jeepney between OLFU and City Care Valenzuela."
+    },
+    {
+      "id": "leg-406",
+      "from": "monumento",
+      "to": "city_care_valenzuela",
+      "mode": "jeepney",
+      "route_name": "Malanday - Monumento",
+      "distance_km": 5.1,
+      "fare_type": "traditional",
+      "notes": "Direct McArthur Highway jeepney between Monumento and City Care Valenzuela."
+    },
+    {
+      "id": "leg-407",
+      "from": "fatima_val",
+      "to": "sm_north",
+      "mode": "bus",
+      "route_name": "Malanday - SM North Bus",
+      "distance_km": 7.5,
+      "fare_type": "aircon",
+      "notes": "Direct McArthur Highway bus between OLFU and SM North EDSA / Trinoma."
     }
   ]
 }

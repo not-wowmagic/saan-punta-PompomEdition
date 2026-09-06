@@ -208,9 +208,9 @@ describe('findRouteAlternatives', () => {
 describe('production parity against the legacy enumeration oracle', () => {
   const legs = routesData.legs;
 
-  it('returns a bounded list whose top entry matches the legacy best for plv → monumento', () => {
-    const legacyTop = getSortedRoutes(legs, 'plv', 'monumento')[0];
-    const routes = findRouteAlternatives(legs, 'plv', 'monumento');
+  it('returns a bounded list whose top entry matches the legacy best for malinta → monumento', () => {
+    const legacyTop = getSortedRoutes(legs, 'malinta', 'monumento')[0];
+    const routes = findRouteAlternatives(legs, 'malinta', 'monumento');
 
     expect(routes.length).toBeGreaterThanOrEqual(1);
     expect(routes.length).toBeLessThanOrEqual(5);
@@ -219,7 +219,7 @@ describe('production parity against the legacy enumeration oracle', () => {
   });
 
   it('returns multiple meaningful alternatives for a long cross-city trip', () => {
-    const routes = findRouteAlternatives(legs, 'plv', 'sm_north');
+    const routes = findRouteAlternatives(legs, 'fatima_val', 'sm_north');
     expect(routes.length).toBeGreaterThanOrEqual(2);
     expect(routes.length).toBeLessThanOrEqual(5);
 
