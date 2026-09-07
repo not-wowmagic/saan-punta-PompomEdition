@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { 
   MapPin, 
   ChevronRight, 
-  Search,
-  Star,
-  Sparkles
+  Search, 
+  Star, 
+  Info,
+  Stethoscope,
+  AlertTriangle,
+  Navigation
 } from 'lucide-react';
 import { CLINICAL_HOSPITALS } from '../data/clinicalHospitals';
 
@@ -19,7 +22,7 @@ export default function DutyCommuteGuide({
 
   const filterOptions = [
     { id: 'all', label: 'All Hospitals (14)' },
-    { id: 'highlighted', label: '⭐ Orientation Highlighted (3)' },
+    { id: 'highlighted', label: 'Recommended for orientation (3)', hasStar: true },
     { id: 'manila', label: 'Manila (5)' },
     { id: 'valenzuela', label: 'Valenzuela (2)' },
     { id: 'qc', label: 'Quezon City (2)' },
@@ -27,7 +30,7 @@ export default function DutyCommuteGuide({
   ];
 
   const filteredHospitals = CLINICAL_HOSPITALS.filter(hosp => {
-    // Search query filter
+    // Search by hospital name, area, or short name
     const matchesQuery = 
       hosp.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       hosp.area.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -35,7 +38,7 @@ export default function DutyCommuteGuide({
     
     if (!matchesQuery) return false;
 
-    // Category filter
+    // Apply the selected area or orientation filter
     if (filter === 'highlighted') return hosp.highlighted;
     if (filter === 'manila') return hosp.area.toLowerCase().includes('manila') || hosp.area.toLowerCase().includes('tondo') || hosp.area.toLowerCase().includes('sampaloc') || hosp.area.toLowerCase().includes('binondo');
     if (filter === 'valenzuela') return hosp.area.toLowerCase().includes('valenzuela');
@@ -45,7 +48,7 @@ export default function DutyCommuteGuide({
   });
 
   const handleChoose = (hospitalId) => {
-    // If starting point is empty, default to Monumento transit hub
+    // Use Monumento as the default origin when none is selected
     if (!startNode) {
       setStartNode('monumento');
     }
@@ -54,31 +57,31 @@ export default function DutyCommuteGuide({
 
   return (
     <div className="duty-guide-container glass-pompom-card animate-fade-in" id="clinical-duty-guide">
-      {/* Pompom Header with mascot banner */}
+      {/* Hospital Guide header */}
       <div className="duty-guide-header">
         <div className="duty-header-badge">
-          <span className="pudding-icon-spin">🍮</span>
-          <span>Clinical Hospital Duty Hub</span>
+          <Stethoscope size={15} className="duty-badge-icon" />
+          <span>Hospital Guide</span>
         </div>
         <h3 className="duty-guide-title">
-          Affiliated Hospitals & Student Commute Guide
+          Hospitals and commute tips for nursing students
         </h3>
         <p className="duty-guide-subtitle">
-          Clinical duty rotation guide for nursing students with real commuter notes and route memos.
+          Browse affiliated hospitals and find practical commute tips.
         </p>
       </div>
 
-      {/* Critical Duty Memo Banner from Photo */}
+      {/* Important commute tip */}
       <div className="duty-memo-alert">
         <div className="duty-memo-icon-box">
-          <span className="alert-emoji">‼️</span>
+          <AlertTriangle size={20} className="alert-icon" />
         </div>
         <div className="duty-memo-content">
           <div className="duty-memo-title">
-            <strong>ALWAYS ‼️</strong> magsabi sa driver saan bababa
+            <strong>IMPORTANT</strong> magsabi sa driver saan bababa
           </div>
           <div className="duty-memo-sub">
-            Tip mula sa senior duty memo: Bago umandar o pagkaabot ng pamasahe, banggitin agad ang drop-off landmark upang hindi lumampas sa hospital gate!
+            Bago umandar o pagkaabot ng pamasahe, banggitin agad ang drop-off landmark upang hindi lumampas sa hospital gate.
           </div>
         </div>
       </div>
@@ -104,7 +107,8 @@ export default function DutyCommuteGuide({
               className={`duty-filter-pill ${filter === opt.id ? 'active' : ''}`}
               onClick={() => setFilter(opt.id)}
             >
-              {opt.label}
+              {opt.hasStar && <Star size={12} fill="#F59E0B" color="#F59E0B" className="filter-star-icon" />}
+              <span>{opt.label}</span>
             </button>
           ))}
         </div>
@@ -112,64 +116,74 @@ export default function DutyCommuteGuide({
 
       {/* Hospital Cards Grid */}
       <div className="duty-hospitals-grid">
-        {filteredHospitals.map(hospital => {
-          const isSelected = selectedHospitalId === hospital.id;
+        {filteredHospitals.length === 0 ? (
+          <div className="status-placeholder status-empty-hospitals">
+            <Search size={32} className="text-muted mb-2" />
+            <h4>No Hospitals Found</h4>
+            <p>No affiliated hospital matched "{searchQuery}". Try searching by area or name.</p>
+          </div>
+        ) : (
+          filteredHospitals.map(hospital => {
+            const isSelected = selectedHospitalId === hospital.id;
 
-          return (
-            <div 
-              key={hospital.id} 
-              className={`duty-hospital-card ${isSelected ? 'active-duty-hospital' : ''} ${hospital.highlighted ? 'highlighted-hospital' : ''}`}
-            >
-              <div className="duty-card-top">
-                <div className="duty-card-title-wrap">
-                  {hospital.highlighted && (
-                    <span className="highlight-tag">
-                      <Star size={12} fill="#F59E0B" color="#F59E0B" /> Slide Highlighted
-                    </span>
-                  )}
-                  <h4 className="hospital-card-name">{hospital.name}</h4>
-                  <div className="hospital-area-tag">
-                    <MapPin size={12} /> {hospital.area}
+            return (
+              <div 
+                key={hospital.id} 
+                className={`duty-hospital-card ${isSelected ? 'active-duty-hospital' : ''} ${hospital.highlighted ? 'highlighted-hospital' : ''}`}
+              >
+                <div className="duty-card-top">
+                  <div className="duty-card-title-wrap">
+                    {hospital.highlighted && (
+                      <span className="highlight-tag">
+                        <Star size={12} fill="#F59E0B" color="#F59E0B" /> Recommended for orientation
+                      </span>
+                    )}
+                    <h4 className="hospital-card-name">{hospital.name}</h4>
+                    <div className="hospital-area-tag">
+                      <MapPin size={12} /> {hospital.area}
+                    </div>
                   </div>
+
+                  <button
+                    type="button"
+                    className="pompom-route-cta-btn"
+                    onClick={() => handleChoose(hospital.id)}
+                    title="Plan a route to this hospital"
+                  >
+                    <Navigation size={13} />
+                    <span>Plan Route</span>
+                  </button>
                 </div>
 
-                <button
-                  type="button"
-                  className="pompom-route-cta-btn"
-                  onClick={() => handleChoose(hospital.id)}
-                  title="Calculate route to this hospital"
-                >
-                  Plan Route 🍮
-                </button>
-              </div>
-
-              {/* Memo Routes preview */}
-              <div className="duty-card-memo-preview">
-                {hospital.memoRoutes.map((mRoute, rIdx) => (
-                  <div key={rIdx} className="memo-route-snippet">
-                    <div className="memo-route-title">
-                      <span className="bullet-swirl">🍥</span> {mRoute.title}:
-                    </div>
-                    <ul className="memo-steps-list">
-                      {mRoute.steps.map((step, sIdx) => (
-                        <li key={sIdx}>
-                          <ChevronRight size={12} className="step-arrow-icon" />
-                          <span>{step}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    {mRoute.caution && (
-                      <div className="memo-caution-box">
-                        <Sparkles size={13} className="sparkle-icon" />
-                        <span>{mRoute.caution}</span>
+                {/* Hospital route tips */}
+                <div className="duty-card-memo-preview">
+                  {hospital.memoRoutes.map((mRoute, rIdx) => (
+                    <div key={rIdx} className="memo-route-snippet">
+                      <div className="memo-route-title">
+                        <ChevronRight size={13} className="memo-bullet-icon" />
+                        <span>{mRoute.title}:</span>
                       </div>
-                    )}
-                  </div>
-                ))}
+                      <ul className="memo-steps-list">
+                        {mRoute.steps.map((step, sIdx) => (
+                          <li key={sIdx}>
+                            <ChevronRight size={12} className="step-arrow-icon" />
+                            <span>{step}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      {mRoute.caution && (
+                        <div className="memo-caution-box">
+                          <Info size={13} className="memo-caution-icon" />
+                          <span>{mRoute.caution}</span>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })
+        )}
       </div>
     </div>
   );

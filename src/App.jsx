@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, lazy, Suspense } from 'react';
-import { Stethoscope, Navigation, Map as MapIcon, List as ListIcon } from 'lucide-react';
+import { Stethoscope, Navigation, Map as MapIcon, List as ListIcon, Loader2 } from 'lucide-react';
 import routesData from './data/routes.json';
 import { findRouteAlternatives } from './utils/k-shortest';
 import { DEFAULT_PROFILE_ID } from './utils/profiles';
@@ -16,7 +16,7 @@ export default function App() {
 
   const [startNode, setStartNode] = useState('monumento'); // Central transit hub default
   const [destinationNode, setDestinationNode] = useState('east_ave_med_ctr'); // Default to East Avenue Medical Center
-  const [isDiscounted, setIsDiscounted] = useState(true); // Default to student discount enabled for clinical duties!
+  const [isDiscounted, setIsDiscounted] = useState(true); // Default to student discount enabled
   
   // Transport preferences
   const [tricycleMode, setTricycleMode] = useState('shared');
@@ -56,7 +56,7 @@ export default function App() {
 
   const activeRoute = routes[selectedRouteIndex] || null;
 
-  // Handle hospital selection from the duty commute guide
+  // Handle hospital selection from the Hospital Guide
   const handleSelectHospital = (hospitalId) => {
     setDestinationNode(hospitalId);
     setActiveTab('planner');
@@ -64,7 +64,6 @@ export default function App() {
 
   return (
     <div className="app-container pompom-theme">
-      {/* Warm Custard Header */}
       <header className="app-header pompom-header">
         <div className="header-content">
           <div className="brand">
@@ -76,11 +75,10 @@ export default function App() {
               <div className="brand-title-row">
                 <h1>Saan Punta</h1>
               </div>
-              <p>Commute Route Finder & Clinical Hospital Duty Guide</p>
+              <p>Route Planner & Hospital Guide</p>
             </div>
           </div>
 
-          {/* Navigation Mode Switcher */}
           <div className="header-nav-pills">
             <button
               type="button"
@@ -89,7 +87,7 @@ export default function App() {
             >
               <Navigation size={15} />
               <span className="pill-label-desktop">Route Planner</span>
-              <span className="pill-label-mobile">Routes</span>
+              <span className="pill-label-mobile">Route Planner</span>
             </button>
             <button
               type="button"
@@ -105,18 +103,16 @@ export default function App() {
               onClick={() => setActiveTab('dutyGuide')}
             >
               <Stethoscope size={15} />
-              <span className="pill-label-desktop">Clinical Hospital Guide</span>
-              <span className="pill-label-mobile">Duties</span>
+              <span className="pill-label-desktop">Hospital Guide</span>
+              <span className="pill-label-mobile">Hospital Guide</span>
               <span className="badge-count">14</span>
             </button>
           </div>
         </div>
       </header>
 
-      {/* Main Content Dashboard */}
       <main className={`main-content tab-${activeTab}`}>
         {activeTab === 'dutyGuide' ? (
-          /* Dedicated Duty Guide Full View with Quick Route Launch */
           <div className="duty-guide-full-view">
             <DutyCommuteGuide
               onSelectHospital={handleSelectHospital}
@@ -126,16 +122,15 @@ export default function App() {
             />
           </div>
         ) : (
-          /* Split Screen on Desktop / Tabbed Switch on Mobile */
           <>
             <section className="sidebar-panel">
-              {/* Quick duty memo banner shortcut (desktop) */}
+              {/* Quick Hospital Guide shortcut (desktop) */}
               <div className="quick-duty-banner" onClick={() => setActiveTab('dutyGuide')}>
                 <div className="quick-banner-left">
                   <img src="/mascot.png" alt="Mascot" className="quick-banner-mascot-img" />
                   <div className="quick-banner-text">
-                    <strong>Clinical Hospital Duty?</strong>
-                    <span>Check all 14 hospital commute notes & tips &rarr;</span>
+                    <strong>Going to a hospital?</strong>
+                    <span>Find commute tips for all 14 hospitals &rarr;</span>
                   </div>
                 </div>
                 <button type="button" className="btn-view-hospitals">
@@ -173,12 +168,13 @@ export default function App() {
               />
             </section>
 
-            {/* Interactive Map Panel */}
             <section className="map-panel">
               <Suspense fallback={
                 <div className="status-placeholder glass-pompom-card animate-fade-in" style={{ height: '100%' }}>
-                  <div className="placeholder-mascot">🍮</div>
-                  <h3>Loading Interactive Map...</h3>
+                  <div className="placeholder-mascot placeholder-loader">
+                    <Loader2 size={36} className="spinner-icon" />
+                  </div>
+                  <h3>Loading map...</h3>
                 </div>
               }>
                 <RouteMap
@@ -189,7 +185,6 @@ export default function App() {
                 />
               </Suspense>
 
-              {/* Mobile Floating Bottom Route Bar */}
               <div className="mobile-map-floating-bar-wrapper">
                 {activeRoute ? (
                   <div className="mobile-map-route-bar glass-pompom-card animate-slide-up">
@@ -216,8 +211,8 @@ export default function App() {
                 ) : (
                   <div className="mobile-map-route-bar glass-pompom-card animate-slide-up">
                     <div className="mobile-map-route-info">
-                      <span className="mobile-route-index">Interactive Map Mode</span>
-                      <span className="mobile-map-route-meta">Pick origin & destination in Routes</span>
+                      <span className="mobile-route-index">Map view</span>
+                      <span className="mobile-map-route-meta">Choose an origin and destination</span>
                     </div>
                     <button
                       type="button"
@@ -225,7 +220,7 @@ export default function App() {
                       onClick={() => setActiveTab('planner')}
                     >
                       <Navigation size={14} />
-                      <span>Routes</span>
+                      <span>Route Planner</span>
                     </button>
                   </div>
                 )}
@@ -235,10 +230,8 @@ export default function App() {
         )}
       </main>
 
-      {/* Persistent Disclaimer Footer */}
       <DisclaimerBanner onOpenModal={() => setIsDisclaimerOpen(true)} />
 
-      {/* Acknowledgment Modal */}
       <DisclaimerModal
         isOpenOverride={isDisclaimerOpen ? true : undefined}
         onCloseOverride={() => setIsDisclaimerOpen(false)}

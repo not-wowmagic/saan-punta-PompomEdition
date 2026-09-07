@@ -4459,6 +4459,116 @@
       "distance_km": 7.5,
       "fare_type": "aircon",
       "notes": "Direct McArthur Highway bus between OLFU and SM North EDSA / Trinoma."
+    },
+    {
+      "id": "leg-408",
+      "from": "sm_north",
+      "to": "sm_fairview",
+      "mode": "bus",
+      "route_name": "North EDSA - Fairview",
+      "distance_km": 6.5,
+      "fare_type": "estimate",
+      "notes": "LTFRB-listed North EDSA–Fairview route. Fare is an estimate using the existing air-conditioned bus calculator; verify current operator and fare before travel."
+    },
+    {
+      "id": "leg-409",
+      "from": "monumento",
+      "to": "balintawak_lrt",
+      "mode": "bus",
+      "route_name": "EDSA Carousel: Monumento - Balintawak",
+      "distance_km": 2.8,
+      "fare_type": "estimate",
+      "notes": "Public-source corridor; current operator, stop pattern, and fare require verification."
+    },
+    {
+      "id": "leg-410",
+      "from": "sm_north",
+      "to": "qc_circle",
+      "mode": "bus",
+      "route_name": "QCBAP: QC Hall / QC Circle corridor",
+      "distance_km": 2.4,
+      "fare_type": "estimate",
+      "notes": "Public-source corridor; current operator, stop pattern, and fare require verification."
+    },
+    {
+      "id": "leg-411",
+      "from": "sm_north",
+      "to": "novaliches_term",
+      "mode": "bus",
+      "route_name": "North EDSA - Novaliches",
+      "distance_km": 7.2,
+      "fare_type": "estimate",
+      "notes": "Public-source corridor; current operator, stop pattern, and fare require verification."
+    },
+    {
+      "id": "leg-412",
+      "from": "monumento",
+      "to": "qc_gen_hosp",
+      "mode": "bus",
+      "route_name": "EDSA Carousel / Quezon City hospital access",
+      "distance_km": 8.0,
+      "fare_type": "estimate",
+      "notes": "Public-source corridor; current operator, stop pattern, and fare require verification."
+    },
+    {
+      "id": "leg-413",
+      "from": "monumento",
+      "to": "east_ave_med_ctr",
+      "mode": "bus",
+      "route_name": "EDSA Carousel - East Avenue",
+      "distance_km": 8.4,
+      "fare_type": "estimate",
+      "notes": "Public-source corridor; current operator, stop pattern, and fare require verification."
+    },
+    {
+      "id": "leg-414",
+      "from": "sm_north",
+      "to": "east_ave_med_ctr",
+      "mode": "bus",
+      "route_name": "QC Hall / East Avenue corridor",
+      "distance_km": 4.0,
+      "fare_type": "estimate",
+      "notes": "Public-source corridor; current operator, stop pattern, and fare require verification."
+    },
+    {
+      "id": "leg-415",
+      "from": "fatima_val",
+      "to": "malinta",
+      "mode": "bus",
+      "route_name": "Valenzuela local bus corridor",
+      "distance_km": 2.4,
+      "fare_type": "estimate",
+      "notes": "Public-source corridor; current operator, stop pattern, and fare require verification."
+    },
+    {
+      "id": "leg-416",
+      "from": "malinta",
+      "to": "meycauayan",
+      "mode": "bus",
+      "route_name": "Malanday / Malinta - Meycauayan",
+      "distance_km": 6.0,
+      "fare_type": "estimate",
+      "notes": "Public-source corridor; current operator, stop pattern, and fare require verification."
+    },
+    {
+      "id": "leg-417",
+      "from": "sm_fairview",
+      "to": "la_mesa_eco",
+      "mode": "jeepney",
+      "route_name": "Fairview - La Mesa Eco Park",
+      "distance_km": 3.0,
+      "fare_type": "estimate",
+      "notes": "Public-source corridor; current operator, stop pattern, and fare require verification."
+    },
+    {
+      "id": "leg-418",
+      "from": "monumento",
+      "to": "tondo_med_ctr",
+      "mode": "jeepney",
+      "route_name": "Monumento - Tondo corridor",
+      "distance_km": 5.6,
+      "fare_type": "estimate",
+      "notes": "Public-source corridor; current operator, stop pattern, and fare require verification."
     }
   ]
 }

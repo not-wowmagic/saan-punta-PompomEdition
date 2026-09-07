@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronDown, Search, X } from 'lucide-react';
+import { ChevronDown, Search, X, Check } from 'lucide-react';
 
 export default function SearchableDropdown({
   id,
@@ -167,12 +167,12 @@ export default function SearchableDropdown({
                       </span>
                     )}
                   </div>
-                  {isSelected && <span className="option-checkmark">🍮</span>}
+                  {isSelected && <Check size={14} className="option-checkmark-icon" />}
                 </li>
               );
             })
           ) : (
-            <li className="dropdown-no-results">No locations match your search 🐾</li>
+            <li className="dropdown-no-results">No locations match your search</li>
           )}
         </ul>
       )}

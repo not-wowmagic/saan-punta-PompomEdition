@@ -24,37 +24,37 @@
   --pompom-cream: #FFFFFF;
 
   /* Theme mappings */
-  --bg-primary: #FEF9E7;
-  --bg-secondary: #FFFBEA;
-  --bg-card: rgba(255, 255, 255, 0.92);
-  --border-pompom: #FDE68A;
-  --border-pompom-hover: #F59E0B;
+  --bg-primary: #FDFBF7;
+  --bg-secondary: #FBF7EE;
+  --bg-card: #FFFFFF;
+  --border-pompom: #EFE8DC;
+  --border-pompom-hover: #D97706;
   --border-light: rgba(74, 40, 16, 0.08);
 
-  --text-primary: #4A2810;
-  --text-secondary: #78350F;
-  --text-muted: #9A3412;
+  --text-primary: #24160E; /* Deep espresso for crisp contrast */
+  --text-secondary: #5A2C10; /* Rich warm brown */
+  --text-muted: #7C2D12; /* High-contrast warm amber-brown, passes WCAG AA */
 
-  --accent-primary: #F59E0B;
-  --accent-primary-hover: #D97706;
-  --accent-success: #10B981;
-  --accent-danger: #EF4444;
-  --accent-warning: #F59E0B;
+  --accent-primary: #D97706;
+  --accent-primary-hover: #B45309;
+  --accent-success: #059669;
+  --accent-danger: #E11D48;
+  --accent-warning: #D97706;
 
   --font-display: 'Fredoka', 'Quicksand', sans-serif;
   --font-sans: 'Quicksand', 'Outfit', sans-serif;
 
-  --radius-xl: 24px;
-  --radius-lg: 18px;
-  --radius-md: 14px;
-  --radius-sm: 8px;
+  --radius-xl: 18px;
+  --radius-lg: 14px;
+  --radius-md: 10px;
+  --radius-sm: 6px;
   --radius-pill: 9999px;
 
-  --shadow-pompom: 0 10px 25px -5px rgba(217, 119, 6, 0.12), 0 4px 10px -2px rgba(74, 40, 16, 0.04);
-  --shadow-hover: 0 16px 32px -8px rgba(217, 119, 6, 0.2), 0 0 15px rgba(253, 224, 71, 0.3);
+  --shadow-pompom: 0 4px 20px -2px rgba(74, 40, 16, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 8px 25px -4px rgba(74, 40, 16, 0.12), 0 2px 6px rgba(0, 0, 0, 0.04);
 
-  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {
@@ -74,10 +74,8 @@ body {
   font-family: var(--font-sans);
   background-color: var(--bg-primary);
   background-image: 
-    radial-gradient(circle at 15% 15%, rgba(254, 240, 138, 0.4) 0px, transparent 45%),
-    radial-gradient(circle at 85% 85%, rgba(254, 215, 170, 0.3) 0px, transparent 45%),
-    radial-gradient(#FDE68A 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 28px 28px;
+    radial-gradient(circle at 12% 15%, rgba(254, 243, 199, 0.45) 0px, transparent 55%),
+    radial-gradient(circle at 88% 85%, rgba(254, 215, 170, 0.25) 0px, transparent 50%);
   color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -92,28 +90,26 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Scrollbars */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--pompom-yellow-light);
+  background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: #FDE68A;
+  background: #E5DCCF;
   border-radius: var(--radius-pill);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #FBBF24;
+  background: #D4C6B3;
 }
 
-/* Pompom Card Glassmorphism */
+/* Card Surface Styling */
 .glass-pompom-card {
   background: var(--bg-card);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 2px solid var(--border-pompom);
-  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-pompom);
+  border-radius: var(--radius-lg);
   box-shadow: var(--shadow-pompom);
-  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .glass-pompom-card:hover {
@@ -410,7 +406,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 100%;
 }
 
-/* Quick Duty Commute Banner */
+/* Quick Hospital Guide banner */
 .quick-duty-banner {
   background: linear-gradient(135deg, #FEF08A, #FDE047);
   border: 2px dashed var(--pompom-caramel);
@@ -656,11 +652,20 @@ h1, h2, h3, h4, h5, h6 {
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+  -ms-overflow-style: none;
   padding: 2px 0;
+  cursor: grab;
+  user-select: none;
+}
+
+.presets-chips-scroll:active {
+  cursor: grabbing;
 }
 
 .presets-chips-scroll::-webkit-scrollbar {
   display: none;
+  width: 0;
+  height: 0;
 }
 
 .preset-chip-divider {
@@ -671,17 +676,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pompom-quick-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   background: #FFFFFF;
   border: 1px solid var(--border-pompom);
-  color: var(--pompom-brown);
-  font-size: 0.7rem;
+  color: var(--text-primary);
+  font-size: 0.72rem;
   font-weight: 600;
-  padding: 3px 9px;
+  padding: 4px 10px;
   border-radius: var(--radius-pill);
   cursor: pointer;
   white-space: nowrap;
   transition: all var(--transition-fast);
   box-shadow: 0 1px 3px rgba(74, 40, 16, 0.04);
+}
+
+.pompom-quick-chip .chip-icon {
+  flex-shrink: 0;
 }
 
 .pompom-quick-chip:hover {
@@ -691,13 +703,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pompom-quick-chip.chip-hospital {
-  background: #FFF5F5;
-  border-color: #FECDD3;
-  color: #BE123C;
+  background: #FFFFFF;
+  border-color: var(--border-pompom);
+  color: var(--text-primary);
+}
+
+.pompom-quick-chip.chip-hospital .chip-icon {
+  color: var(--pompom-caramel);
 }
 
 .pompom-quick-chip.chip-hospital:hover {
-  background: #FFE4E6;
+  background: #FEF3C7;
+  border-color: var(--pompom-amber);
 }
 
 /* Searchable Dropdown Styling */
@@ -858,8 +875,8 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #FFF5F5;
-  border: 1px solid #FECDD3;
+  background: #FFFDF5;
+  border: 1px solid var(--border-pompom);
   padding: 5px 11px;
   border-radius: var(--radius-pill);
   cursor: pointer;
@@ -868,19 +885,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .student-discount-pill-label:hover {
-  background: #FFE4E6;
+  background: #FEF3C7;
+  border-color: var(--pompom-amber);
 }
 
 .discount-pill-icon-wrap {
   display: flex;
   align-items: center;
-  color: #E11D48;
+  color: var(--pompom-caramel);
 }
 
 .discount-pill-text {
   font-size: 0.74rem;
   font-weight: 700;
-  color: #9F1239;
+  color: var(--pompom-brown);
   white-space: nowrap;
 }
 
@@ -931,24 +949,40 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .preference-options-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 6px;
+}
+
+.profile-options-row {
+  display: flex;
   flex-wrap: wrap;
+  gap: 6px;
 }
 
 .pref-btn {
-  flex: 1;
-  min-width: 80px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: #FFFFFF;
   border: 1.5px solid var(--border-pompom);
   border-radius: var(--radius-pill);
-  padding: 6px 10px;
+  padding: 7px 10px;
   font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-size: 0.74rem;
   font-weight: 700;
   color: var(--pompom-brown);
   cursor: pointer;
   transition: all var(--transition-fast);
+  white-space: nowrap;
+  text-align: center;
+}
+
+.profile-options-row .pref-btn {
+  flex: 1 1 calc(33.333% - 6px);
+  min-width: 105px;
+  padding: 7px 8px;
+  font-size: 0.72rem;
 }
 
 .pref-btn:hover {
@@ -995,7 +1029,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .toggle-switch input:checked + .toggle-slider {
-  background-color: #E11D48;
+  background-color: #4A2810;
 }
 
 .toggle-switch input:checked + .toggle-slider:before {
@@ -1030,9 +1064,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pompom-pill-tag {
-  font-size: 0.7rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
   font-weight: 600;
   color: var(--pompom-caramel);
+}
+
+.pompom-pill-tag .tag-inline-icon {
+  flex-shrink: 0;
 }
 
 .routes-cards-stack {
@@ -1060,9 +1101,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .route-card.active-route-card {
   border-color: var(--pompom-amber);
-  border-left: 5px solid var(--pompom-amber);
   background: #FFFCF7;
-  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.14);
+  box-shadow: 0 4px 18px rgba(217, 119, 6, 0.12);
 }
 
 .route-card-header {
@@ -1091,10 +1131,6 @@ h1, h2, h3, h4, h5, h6 {
   gap: 6px;
 }
 
-.fare-pudding-badge {
-  font-size: 1.1rem;
-}
-
 .fare-value {
   font-size: 1.4rem;
   font-weight: 800;
@@ -1118,9 +1154,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .stat-transfers {
-  background: #FFF1F2;
-  color: #BE123C;
-  border-color: #FECDD3;
+  background: #FFFBEA;
+  color: var(--pompom-caramel);
+  border-color: #FDE68A;
 }
 
 /* Mode Strip */
@@ -1319,9 +1355,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .mode-warning-text {
-  font-size: 0.7rem;
-  padding: 6px 8px;
+  font-size: 0.72rem;
+  padding: 6px 10px;
   border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1.35;
 }
 
 .warning-taxi {
@@ -1338,30 +1378,62 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.78rem;
   color: var(--pompom-brown);
   background: #FFFBEA;
-  border-left: 3.5px solid #F59E0B;
+  border: 1px solid rgba(245, 158, 11, 0.3);
   padding: 8px 12px;
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  border-radius: var(--radius-sm);
   line-height: 1.45;
   margin-top: 4px;
 }
 
+.step-note-inline {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.step-note-icon {
+  flex-shrink: 0;
+  margin-top: 2.5px;
+  color: #D97706;
+}
+
+.step-note-text {
+  flex: 1;
+  min-width: 0;
+  line-height: 1.45;
+}
+
+.duty-memo-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.duty-note-text {
+  line-height: 1.45;
+}
+
 .duty-note-highlight {
-  background: #FFF1F2;
-  border-left: 3px solid #E11D48;
-  color: #881337;
+  background: #FEF3C7;
+  border: 1.5px solid #F59E0B;
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  color: #24160E;
+  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.1);
 }
 
 .duty-caution-pill {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  font-size: 0.7rem;
+  gap: 5px;
+  font-size: 0.72rem;
   font-weight: 700;
-  color: #BE123C;
-  background: #FFE4E6;
-  padding: 2px 7px;
+  color: #FFFFFF;
+  background: #4A2810;
+  padding: 3px 9px;
   border-radius: var(--radius-pill);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
+  box-shadow: 0 1px 3px rgba(74, 40, 16, 0.15);
 }
 
 /* Status Placeholders */
@@ -1376,8 +1448,53 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .placeholder-mascot {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 4px;
+}
+
+.placeholder-status-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.placeholder-status-icon.warning-icon {
+  background: #FFFBEB;
+  color: #D97706;
+  border: 1.5px solid #FDE68A;
+}
+
+.placeholder-status-icon.error-icon {
+  background: #FEF2F2;
+  color: #E11D48;
+  border: 1.5px solid #FECDD3;
+}
+
+.placeholder-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--pompom-amber);
+}
+
+.spinner-icon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.status-empty-hospitals {
+  padding: 48px 24px;
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--text-secondary);
 }
 
 .status-placeholder h3 {
@@ -1553,7 +1670,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.3;
 }
 
-/* Duty Commute Guide Full Page View */
+/* Hospital Guide full-page view */
 .duty-guide-full-view {
   flex: 1;
   overflow-y: auto;
@@ -1596,7 +1713,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
-/* Critical Duty Memo Banner */
+/* Important commute tip banner */
 .duty-memo-alert {
   background: linear-gradient(135deg, #FFF1F2, #FFFBEB);
   border: 2.5px solid #FDA4AF;
@@ -1617,6 +1734,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #E11D48;
   font-size: 1.4rem;
   flex-shrink: 0;
 }
@@ -1684,6 +1802,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .duty-filter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   background: #FFFDF0;
   border: 1.5px solid #FDE68A;
   color: var(--pompom-brown);
@@ -1774,9 +1895,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pompom-route-cta-btn {
-  background: linear-gradient(135deg, #FDE047, #F59E0B);
-  border: 1.5px solid var(--pompom-caramel);
-  color: var(--pompom-brown);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--pompom-amber);
+  border: 1px solid var(--pompom-caramel);
+  color: #FFFFFF;
   font-family: var(--font-display);
   font-size: 0.78rem;
   font-weight: 700;
@@ -1785,11 +1909,12 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
   white-space: nowrap;
   transition: all var(--transition-fast);
-  box-shadow: 0 2px 6px rgba(180, 83, 9, 0.15);
+  box-shadow: 0 2px 6px rgba(180, 83, 9, 0.2);
 }
 
 .pompom-route-cta-btn:hover {
-  transform: scale(1.05);
+  background: var(--accent-primary-hover);
+  transform: translateY(-1px);
   box-shadow: 0 4px 10px rgba(180, 83, 9, 0.25);
 }
 
@@ -1838,20 +1963,22 @@ h1, h2, h3, h4, h5, h6 {
 
 .memo-caution-box {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 6px;
   background: #FEF3C7;
   color: #92400E;
   font-size: 0.72rem;
   font-weight: 700;
-  padding: 5px 8px;
+  padding: 6px 9px;
   border-radius: var(--radius-sm);
-  margin-top: 3px;
+  margin-top: 4px;
+  line-height: 1.35;
 }
 
-.sparkle-icon {
+.memo-caution-icon {
   color: #D97706;
   flex-shrink: 0;
+  margin-top: 1.5px;
 }
 
 .duty-driver-tip {
@@ -2121,7 +2248,7 @@ h1, h2, h3, h4, h5, h6 {
     max-width: fit-content !important;
   }
 
-  /* Hide Redundant Quick Duty Banner on Mobile (Already directly in nav!) */
+  /* Hide the quick Hospital Guide banner on mobile; it is in the nav */
   .quick-duty-banner {
     display: none !important;
   }
@@ -2170,7 +2297,7 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 10;
   }
 
-  /* Dedicated Duty Guide View */
+  /* Dedicated Hospital Guide view */
   .duty-guide-full-view {
     width: 100% !important;
     height: 100% !important;
@@ -2455,7 +2582,7 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.4;
   }
 
-  /* Hospital Duty Guide Grid */
+  /* Hospital Guide grid */
   .duty-hospitals-grid {
     grid-template-columns: 1fr !important;
     gap: 10px;
@@ -2514,4 +2641,3 @@ h1, h2, h3, h4, h5, h6 {
     display: none !important;
   }
 }
-

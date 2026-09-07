@@ -1,6 +1,6 @@
-# Saan Punta - Commute Route Finder & Fare Calculator
+# Saan Punta - Route Planner & Fare Calculator
 
-**Saan Punta** is a highly optimized React + Vite point-to-point public transport commute route finder and fare calculator covering **41 major nodes** and **316 legs** across Metro Manila (Valenzuela, Caloocan, Manila, Quezon City, San Juan, Mandaluyong, Makati, Pasig, Marikina, Taguig/BGC, Pasay) and surrounding provinces (Bulacan and Rizal).
+**Saan Punta** is a highly optimized React + Vite point-to-point public transport Route Planner and fare calculator covering **41 major nodes** and **316 legs** across Metro Manila (Valenzuela, Caloocan, Manila, Quezon City, San Juan, Mandaluyong, Makati, Pasig, Marikina, Taguig/BGC, Pasay) and surrounding provinces (Bulacan and Rizal).
 
 It calculates travel paths across multiple transport modes (jeepneys, modern e-jeeps, buses, trains, tricycles, taxis, motorcycle taxis, walking) using an optimized O(V + E) graph traversal algorithm, rendering the route on an interactive OpenStreetMap (Leaflet) map with OSRM street-tracing and detailed step-by-step fare cards.
 

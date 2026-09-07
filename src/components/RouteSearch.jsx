@@ -1,5 +1,15 @@
-import React, { useState, memo } from 'react';
-import { ArrowUpDown, GraduationCap, Settings, ChevronDown, ChevronUp } from 'lucide-react';
+import React, { useState, useRef, memo } from 'react';
+import { 
+  ArrowUpDown, 
+  GraduationCap, 
+  Settings, 
+  ChevronDown, 
+  ChevronUp, 
+  Compass, 
+  Train, 
+  Building2, 
+  Stethoscope 
+} from 'lucide-react';
 import { PROFILE_LIST } from '../utils/profiles';
 import SearchableDropdown from './SearchableDropdown';
 import { CLINICAL_HOSPITALS } from '../data/clinicalHospitals';
@@ -24,6 +34,53 @@ function RouteSearch({
   setProfileId
 }) {
   const [isPreferencesOpen, setIsPreferencesOpen] = useState(false);
+  const presetsScrollRef = useRef(null);
+  const isDraggingRef = useRef(false);
+  const startXRef = useRef(0);
+  const scrollLeftRef = useRef(0);
+  const hasDraggedRef = useRef(false);
+
+  const handleMouseDown = (e) => {
+    const slider = presetsScrollRef.current;
+    if (!slider) return;
+    isDraggingRef.current = true;
+    hasDraggedRef.current = false;
+    startXRef.current = e.pageX - slider.offsetLeft;
+    scrollLeftRef.current = slider.scrollLeft;
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDraggingRef.current) return;
+    const slider = presetsScrollRef.current;
+    if (!slider) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startXRef.current) * 1.5;
+    if (Math.abs(walk) > 4) {
+      hasDraggedRef.current = true;
+    }
+    slider.scrollLeft = scrollLeftRef.current - walk;
+  };
+
+  const handleMouseUpOrLeave = () => {
+    isDraggingRef.current = false;
+  };
+
+  const handleClickCapture = (e) => {
+    if (hasDraggedRef.current) {
+      e.stopPropagation();
+      e.preventDefault();
+      hasDraggedRef.current = false;
+    }
+  };
+
+  const handleWheel = (e) => {
+    const slider = presetsScrollRef.current;
+    if (!slider) return;
+    if (e.deltaY !== 0 && e.deltaX === 0) {
+      slider.scrollLeft += e.deltaY;
+    }
+  };
 
   const handleSwap = () => {
     const temp = startNode;
@@ -31,19 +88,19 @@ function RouteSearch({
     setDestinationNode(temp);
   };
 
-  // Classify each node to provide cute badges in the dropdown
+  // Classify each node to provide clean badges in the dropdown
   const dropdownOptions = nodes.map(node => {
     let badge = null;
     let badgeType = 'default';
 
     if (hospitalIdSet.has(node.id)) {
-      badge = '🏥 Hospital';
+      badge = 'Hospital';
       badgeType = 'hospital';
     } else if (['fatima_val', 'ust', 'up_diliman', 'feu_manila', 'mapua_intramuros', 'dlsu', 'ateneo_katipunan'].includes(node.id)) {
-      badge = '🎓 Campus';
+      badge = 'Campus';
       badgeType = 'campus';
     } else if (node.id.includes('lrt') || node.id.includes('mrt') || node.id.includes('term') || node.id === 'monumento' || node.id === 'sm_north' || node.id === 'centris_qave') {
-      badge = '🚆 Transit Hub';
+      badge = 'Transit Hub';
       badgeType = 'transit';
     }
 
@@ -59,11 +116,12 @@ function RouteSearch({
     <div className="search-container glass-pompom-card animate-fade-in" id="route-search-panel">
       <div className="search-header">
         <div className="pompom-pudding-pill">
-          <span>🍮 Commute Route Planner</span>
+          <Compass size={14} className="pill-icon" />
+          <span>Route Planner</span>
         </div>
         <h2 className="section-title">Where are we going today?</h2>
         <p className="section-subtitle">
-          Point-to-point transit routes for Valenzuela, Caloocan, Manila & hospital duties
+          Choose where you’re starting and where you’re going.
         </p>
       </div>
 
@@ -82,7 +140,7 @@ function RouteSearch({
               options={dropdownOptions}
               value={startNode}
               onChange={setStartNode}
-              placeholder="Origin (e.g., Monumento, OLFU)..."
+              placeholder="Choose an origin (e.g., Monumento, OLFU)..."
             />
           </div>
           <div className="route-field-row">
@@ -91,14 +149,14 @@ function RouteSearch({
               options={dropdownOptions}
               value={destinationNode}
               onChange={setDestinationNode}
-              placeholder="Destination or Hospital (e.g., East Ave)..."
+              placeholder="Choose a destination or hospital (e.g., East Ave)..."
             />
           </div>
         </div>
 
         <button
           type="button"
-          className="swap-btn-floating pompom-bounce"
+          className="swap-btn-floating"
           onClick={handleSwap}
           aria-label="Swap starting point and destination"
           title="Swap locations"
@@ -110,14 +168,24 @@ function RouteSearch({
       {/* Quick Location Shortcuts Strip */}
       <div className="quick-presets-bar">
         <span className="presets-label">Quick:</span>
-        <div className="presets-chips-scroll">
+        <div 
+          ref={presetsScrollRef}
+          className="presets-chips-scroll"
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUpOrLeave}
+          onMouseLeave={handleMouseUpOrLeave}
+          onClickCapture={handleClickCapture}
+          onWheel={handleWheel}
+        >
           <button 
             type="button" 
             className="pompom-quick-chip"
             onClick={() => setStartNode('fatima_val')}
             title="Set origin to OLFU"
           >
-            🎓 OLFU
+            <GraduationCap size={13} className="chip-icon" />
+            <span>OLFU</span>
           </button>
           <button 
             type="button" 
@@ -125,7 +193,8 @@ function RouteSearch({
             onClick={() => setStartNode('monumento')}
             title="Set origin to Monumento"
           >
-            🚆 Monumento
+            <Train size={13} className="chip-icon" />
+            <span>Monumento</span>
           </button>
           <button 
             type="button" 
@@ -133,7 +202,8 @@ function RouteSearch({
             onClick={() => setStartNode('sm_north')}
             title="Set origin to SM North"
           >
-            🏬 SM North
+            <Building2 size={13} className="chip-icon" />
+            <span>SM North</span>
           </button>
           <span className="preset-chip-divider">|</span>
           <button 
@@ -142,7 +212,8 @@ function RouteSearch({
             onClick={() => setDestinationNode('east_ave_med_ctr')}
             title="Set destination to East Avenue Medical Center"
           >
-            🏥 East Ave
+            <Stethoscope size={13} className="chip-icon" />
+            <span>East Ave</span>
           </button>
           <button 
             type="button" 
@@ -150,7 +221,8 @@ function RouteSearch({
             onClick={() => setDestinationNode('val_med_ctr')}
             title="Set destination to Valenzuela Medical Center"
           >
-            🏥 VMC
+            <Stethoscope size={13} className="chip-icon" />
+            <span>VMC</span>
           </button>
           <button 
             type="button" 
@@ -158,7 +230,8 @@ function RouteSearch({
             onClick={() => setDestinationNode('tondo_med_ctr')}
             title="Set destination to Tondo Medical Center"
           >
-            🏥 Tondo Med
+            <Stethoscope size={13} className="chip-icon" />
+            <span>Tondo Med</span>
           </button>
         </div>
       </div>
@@ -169,7 +242,7 @@ function RouteSearch({
           <div className="discount-pill-icon-wrap">
             <GraduationCap size={15} className="discount-pill-icon" />
           </div>
-          <span className="discount-pill-text">Student Duty 20% Discount</span>
+          <span className="discount-pill-text">Student discount (20%)</span>
           <div className="toggle-switch">
             <input
               type="checkbox"
@@ -200,7 +273,7 @@ function RouteSearch({
           id="transport-preferences-content"
         >
           <div className="preference-item">
-            <span className="preference-title" id="routing-profile-label">Routing Goal:</span>
+            <span className="preference-title" id="routing-profile-label">Prioritize:</span>
             <div
               className="preference-options-row profile-options-row"
               role="group"

@@ -4,11 +4,11 @@ import { findRouteAlternatives } from '../k-shortest';
 import { DEFAULT_PROFILE_ID } from '../profiles';
 import { CLINICAL_HOSPITALS } from '../../data/clinicalHospitals';
 
-describe('Clinical Duty Hospital Routing', () => {
+describe('Hospital routing', () => {
   const { legs, nodes } = routesData;
   const nodesById = Object.fromEntries(nodes.map(n => [n.id, n]));
 
-  it('contains all 14 clinical hospitals in the dataset', () => {
+  it('contains all 14 hospitals in the dataset', () => {
     expect(CLINICAL_HOSPITALS.length).toBe(14);
     for (const hosp of CLINICAL_HOSPITALS) {
       expect(nodesById[hosp.id]).toBeDefined();

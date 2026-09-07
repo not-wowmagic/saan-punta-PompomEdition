@@ -67,13 +67,13 @@ async function run() {
     await page.waitForTimeout(500);
   }
 
-  // 6. Test Hospital Duties View
-  const dutiesTabBtn = page.locator('button.nav-pill-btn:has-text("Duties")');
-  if (await dutiesTabBtn.isVisible()) {
-    await dutiesTabBtn.click();
+  // 6. Test Hospital Guide view
+  const hospitalGuideTabBtn = page.locator('button.nav-pill-btn:has-text("Hospital Guide")');
+  if (await hospitalGuideTabBtn.isVisible()) {
+    await hospitalGuideTabBtn.click();
     await page.waitForTimeout(600);
-    await page.screenshot({ path: path.join(ARTIFACTS_DIR, '05_mobile_duties_view.png') });
-    console.log('5. Captured mobile hospital duty guide');
+    await page.screenshot({ path: path.join(ARTIFACTS_DIR, '05_mobile_hospital_guide_view.png') });
+    console.log('5. Captured mobile Hospital Guide');
 
     // Click "Get Route" on first hospital
     const getRouteBtn = page.locator('button:has-text("Get Route")').first();

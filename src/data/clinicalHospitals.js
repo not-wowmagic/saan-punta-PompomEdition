@@ -1,6 +1,5 @@
 /**
- * Affiliation Hospitals and Duty Commute Guide Metadata
- * Extracted from Clinical Duty Orientation slide and student commute memo.
+ * Hospital Guide metadata for affiliated hospitals and commute tips.
  */
 
 export const CLINICAL_HOSPITALS = [
@@ -9,7 +8,7 @@ export const CLINICAL_HOSPITALS = [
     name: "East Avenue Medical Center (EAMC)",
     shortName: "East Avenue",
     area: "Diliman, Quezon City",
-    highlighted: true, // Marked with yellow line on orientation slide
+    highlighted: true,
     colorBadge: "#FF8DA1",
     memoRoutes: [
       {
@@ -19,7 +18,7 @@ export const CLINICAL_HOSPITALS = [
           "Tawid to SM North",
           "Find jeep terminal going to UP Diliman (passes East Avenue)"
         ],
-        caution: "✨ Matagal mapuno ang jeep to UP if morning duty rush!"
+        caution: "Matagal mapuno ang jeep to UP during the morning rush."
       },
       {
         title: "Route 2: Via Quezon Ave Centris",
@@ -38,7 +37,7 @@ export const CLINICAL_HOSPITALS = [
     name: "Valenzuela Medical Center (VMC)",
     shortName: "Valenzuela Med",
     area: "Karuhatan, Valenzuela City",
-    highlighted: true, // Marked with yellow line on orientation slide
+    highlighted: true,
     colorBadge: "#F59E0B",
     memoRoutes: [
       {
@@ -58,7 +57,7 @@ export const CLINICAL_HOSPITALS = [
     name: "Justice Jose Abad Santos General Hospital",
     shortName: "Justice Abad Santos",
     area: "Binondo / San Nicolas, Manila",
-    highlighted: true, // Marked with yellow line on orientation slide
+    highlighted: true,
     colorBadge: "#8B5CF6",
     memoRoutes: [
       {
@@ -82,7 +81,7 @@ export const CLINICAL_HOSPITALS = [
     colorBadge: "#3B82F6",
     memoRoutes: [
       {
-        title: "Route 1: Via Tayuman LRT (from memo)",
+        title: "Route 1: Via Tayuman LRT",
         steps: [
           "Ride jeep or LRT-1 to Tayuman Station",
           "Ride jeep bound for Pritil",
@@ -91,7 +90,7 @@ export const CLINICAL_HOSPITALS = [
         caution: "Double transfer route, prepare exact coins for quick boarding!"
       },
       {
-        title: "Route 2: Via Monumento Hypermarket (from memo)",
+        title: "Route 2: Via Monumento Hypermarket",
         steps: [
           "Baba sa Hypermarket Monumento",
           "Tawid footbridge to Puregold Monumento",
@@ -112,7 +111,7 @@ export const CLINICAL_HOSPITALS = [
     colorBadge: "#10B981",
     memoRoutes: [
       {
-        title: "Via Tayuman LRT (from memo)",
+        title: "Via Tayuman LRT",
         steps: [
           "Ride LRT-1 to Tayuman Station",
           "Tawid until the stoplight intersection",
@@ -291,7 +290,7 @@ export const CLINICAL_HOSPITALS = [
           "From Marilao highway or Novaliches Terminal, ride jeep / tricycle heading towards Muzon",
           "Drop off at Kairos Maternity & Medical Center"
         ],
-        caution: "Maternity facility rotation duty — bring extra duty scrub sets!"
+        caution: "Maternity facility rotation — bring extra scrub sets."
       }
     ],
     studentTips: "Sabihin: 'Kairos Maternity Center po'."

@@ -289,7 +289,7 @@ describe('parity with the legacy bounded-DFS engine (regression)', () => {
     ['malinta', 'monumento'],
     ['malinta', 'sm_north'],
     ['malanday_term', 'recto'],
-    ['sm_fairview', 'intramuros']
+    ['sm_north', 'intramuros']
   ];
 
   for (const [from, to] of REPRESENTATIVE_PAIRS) {

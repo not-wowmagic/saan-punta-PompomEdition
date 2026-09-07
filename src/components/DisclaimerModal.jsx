@@ -31,13 +31,13 @@ export default function DisclaimerModal({ isOpenOverride, onCloseOverride }) {
         <div className="modal-header">
           <div className="modal-title-container">
             <AlertTriangle className="warning-icon-svg" size={24} style={{ color: 'var(--accent-warning)' }} />
-            <h2>Disclaimer & Commuter Notice</h2>
+            <h2>Route Planner notice</h2>
           </div>
         </div>
         
         <div className="modal-body">
           <p className="highlight-text">
-            Saan Punta is a route finding and fare estimation tool. Please read and agree to the following before planning your commute:
+            Saan Punta helps you plan routes and estimate fares. Please read and agree to the following before planning a route:
           </p>
           
           <ul className="disclaimer-list">

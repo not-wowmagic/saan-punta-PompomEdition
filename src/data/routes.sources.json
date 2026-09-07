@@ -1,0 +1,102 @@
+{
+  "retrieved_at": "2026-09-08",
+  "entries": [
+    {
+      "leg_id": "leg-408",
+      "route_name": "North EDSA - Fairview",
+      "source_url": "https://ltfrb.gov.ph/wp-content/uploads/2022/07/Metro-Manila-End-of-SCP-3-Operations_List-of-Routes.pdf",
+      "evidence": "The LTFRB route list identifies North EDSA - Fairview as a Metro Manila route (route 5 in the listed route legend).",
+      "confidence": "high",
+      "fare_status": "unverified_estimate",
+      "notes": "The public source confirms the route name/endpoints but does not provide a current fare. The dataset therefore uses fare_type=estimate and the existing bus fare utility only for indicative calculations."
+    },
+    {
+      "scope": "LRT-1 fare and station context",
+      "source_url": "https://www.lrta.gov.ph/tickets-and-fares/",
+      "evidence": "LRTA public ticket and fare page states that current fare posters at station entrances should be used to verify the specific trip fare.",
+      "confidence": "high",
+      "fare_status": "verify_at_station",
+      "notes": "Existing train legs remain unchanged; this source is retained for audit context because fares are time-sensitive."
+    },
+    {
+      "leg_id": "leg-409",
+      "source_url": "https://brt.ph/edsa-busway",
+      "retrieved_at": "2026-09-08",
+      "confidence": "high",
+      "fare_status": "estimate",
+      "evidence": "Source identifies the named corridor or endpoint relationship; exact stop sequence and current fare require verification."
+    },
+    {
+      "leg_id": "leg-410",
+      "source_url": "https://www.pna.gov.ph/articles/1162004",
+      "retrieved_at": "2026-09-08",
+      "confidence": "medium",
+      "fare_status": "estimate",
+      "evidence": "Source identifies the named corridor or endpoint relationship; exact stop sequence and current fare require verification."
+    },
+    {
+      "leg_id": "leg-411",
+      "source_url": "https://wiki.openstreetmap.org/wiki/Metro_Manila/City_bus_routes",
+      "retrieved_at": "2026-09-08",
+      "confidence": "medium",
+      "fare_status": "estimate",
+      "evidence": "Source identifies the named corridor or endpoint relationship; exact stop sequence and current fare require verification."
+    },
+    {
+      "leg_id": "leg-412",
+      "source_url": "https://brt.ph/edsa-busway",
+      "retrieved_at": "2026-09-08",
+      "confidence": "medium",
+      "fare_status": "estimate",
+      "evidence": "Source identifies the named corridor or endpoint relationship; exact stop sequence and current fare require verification."
+    },
+    {
+      "leg_id": "leg-413",
+      "source_url": "https://brt.ph/edsa-busway",
+      "retrieved_at": "2026-09-08",
+      "confidence": "medium",
+      "fare_status": "estimate",
+      "evidence": "Source identifies the named corridor or endpoint relationship; exact stop sequence and current fare require verification."
+    },
+    {
+      "leg_id": "leg-414",
+      "source_url": "https://www.pna.gov.ph/articles/1162004",
+      "retrieved_at": "2026-09-08",
+      "confidence": "medium",
+      "fare_status": "estimate",
+      "evidence": "Source identifies the named corridor or endpoint relationship; exact stop sequence and current fare require verification."
+    },
+    {
+      "leg_id": "leg-415",
+      "source_url": "https://valenzuela.gov.ph/images/tagalag2020/guide.pdf",
+      "retrieved_at": "2026-09-08",
+      "confidence": "medium",
+      "fare_status": "estimate",
+      "evidence": "Source identifies the named corridor or endpoint relationship; exact stop sequence and current fare require verification."
+    },
+    {
+      "leg_id": "leg-416",
+      "source_url": "https://valenzuela.gov.ph/images/tagalag2020/guide.pdf",
+      "retrieved_at": "2026-09-08",
+      "confidence": "medium",
+      "fare_status": "estimate",
+      "evidence": "Source identifies the named corridor or endpoint relationship; exact stop sequence and current fare require verification."
+    },
+    {
+      "leg_id": "leg-417",
+      "source_url": "https://www.reddit.com/r/HowToGetTherePH/comments/138bh6k/valenzuela_to_fairview_terraces/",
+      "retrieved_at": "2026-09-08",
+      "confidence": "low",
+      "fare_status": "estimate",
+      "evidence": "Source identifies the named corridor or endpoint relationship; exact stop sequence and current fare require verification."
+    },
+    {
+      "leg_id": "leg-418",
+      "source_url": "https://wiki.openstreetmap.org/wiki/Metro_Manila/Jeepney_and_UV_Express_routes",
+      "retrieved_at": "2026-09-08",
+      "confidence": "medium",
+      "fare_status": "estimate",
+      "evidence": "Source identifies the named corridor or endpoint relationship; exact stop sequence and current fare require verification."
+    }
+  ]
+}

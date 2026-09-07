@@ -1,5 +1,14 @@
 import React, { memo } from 'react';
-import { ArrowRight, AlertTriangle, Lightbulb, Bus, Sparkles } from 'lucide-react';
+import { 
+  ArrowRight, 
+  AlertTriangle, 
+  Lightbulb, 
+  Bus, 
+  Info, 
+  AlertCircle, 
+  HelpCircle, 
+  Map as MapIcon 
+} from 'lucide-react';
 import { MODE_ICONS, MODE_LABELS } from '../utils/constants';
 
 function RouteList({
@@ -23,8 +32,8 @@ function RouteList({
         <div className="placeholder-mascot">
           <img src="/mascot.png" alt="Mascot" className="placeholder-mascot-img" />
         </div>
-        <h3>Select Your Commute Points</h3>
-        <p>Pick a starting terminal or campus, and choose your destination or hospital to calculate routes & fares!</p>
+        <h3>Choose your locations</h3>
+        <p>Choose an origin and destination to see routes and fares.</p>
       </div>
     );
   }
@@ -32,9 +41,11 @@ function RouteList({
   if (startNode === destinationNode) {
     return (
       <div className="status-placeholder status-warning glass-pompom-card animate-fade-in">
-        <div className="placeholder-mascot">🐾</div>
-        <h3>Same Location Selected</h3>
-        <p>Your starting point and destination are the same. Please choose a different destination!</p>
+        <div className="placeholder-mascot placeholder-status-icon warning-icon">
+          <AlertCircle size={36} />
+        </div>
+        <h3>Choose a different destination</h3>
+        <p>Your origin and destination are the same.</p>
       </div>
     );
   }
@@ -42,13 +53,15 @@ function RouteList({
   if (routes.length === 0) {
     return (
       <div className="status-placeholder status-error glass-pompom-card animate-fade-in">
-        <div className="placeholder-mascot">😿</div>
-        <h3>No Direct Transit Routes Found</h3>
+        <div className="placeholder-mascot placeholder-status-icon error-icon">
+          <HelpCircle size={36} />
+        </div>
+        <h3>No routes found</h3>
         <p>
-          No connected transit routes found between these locations in the current network. Consider a direct taxi or ride-hailing option.
+          We couldn’t find a connected transit route between these locations. Try a different origin or destination.
         </p>
         <p className="text-xs text-muted mt-2">
-          Tip: Check the Clinical Hospital Duty Guide above for suggested hospital transfer hubs!
+          Tip: Open the Hospital Guide for hospital-specific commute tips.
         </p>
       </div>
     );
@@ -58,9 +71,12 @@ function RouteList({
     <div className="routes-list-container" id="routes-results-list">
       <div className="routes-list-header">
         <h3 className="section-title-sm">
-          Available Commute Options ({totalRoutesCount > routes.length ? `Top ${routes.length} of ${totalRoutesCount}` : routes.length})
+          Routes ({totalRoutesCount > routes.length ? `Top ${routes.length} of ${totalRoutesCount}` : routes.length})
         </h3>
-        <span className="pompom-pill-tag">🐾 Tap card to view route on map</span>
+        <span className="pompom-pill-tag">
+          <Info size={12} className="tag-inline-icon" />
+          <span>Tap a route to view it on the map</span>
+        </span>
       </div>
       
       <div className="routes-cards-stack">
@@ -79,7 +95,6 @@ function RouteList({
                 <div className="route-fare-cost">
                   <span className="fare-label">Estimated Fare</span>
                   <div className="fare-badge-group">
-                    <span className="fare-pudding-badge">🍮</span>
                     <span className="fare-value">{route.fareText}</span>
                   </div>
                 </div>
@@ -119,18 +134,19 @@ function RouteList({
                 <div className="route-expanded-details animate-slide-down">
                   <div className="divider"></div>
                   <div className="details-header-row">
-                    <h4 className="detail-title">Step-by-step Commute:</h4>
+                    <h4 className="detail-title">Route steps</h4>
                     {onSwitchToMap && (
                       <button
                         type="button"
-                        className="btn-view-on-map-pill pompom-bounce"
+                        className="btn-view-on-map-pill"
                         onClick={(e) => {
                           e.stopPropagation();
                           onSwitchToMap();
                         }}
-                        title="View this route on the interactive map"
+                        title="View this route on the map"
                       >
-                        <span>🗺️ View on Map</span>
+                        <MapIcon size={14} />
+                        <span>View on Map</span>
                       </button>
                     )}
                   </div>
@@ -188,29 +204,34 @@ function RouteList({
                             {/* Regulated taxi note */}
                             {isTaxi && (
                               <div className="mode-warning-text warning-taxi">
-                                <AlertTriangle size={12} style={{ display: 'inline', marginRight: '4px', verticalAlign: 'text-bottom' }} />
-                                Taxi: flagdown & distance formula; metered rates variable by Manila traffic conditions.
+                                <AlertTriangle size={13} style={{ flexShrink: 0 }} />
+                                <span>Taxi: flagdown & distance formula; metered rates variable by Manila traffic conditions.</span>
                               </div>
                             )}
 
                             {/* Moto taxi disclaimer */}
                             {isMotoTaxi && (
                               <div className="mode-warning-text warning-mototaxi" id={`warning-mototaxi-${sIdx}`}>
-                                <AlertTriangle size={12} style={{ display: 'inline', marginRight: '4px', verticalAlign: 'text-bottom' }} />
-                                Motorcycle Taxi: rough estimate, dynamic surge pricing applies.
+                                <AlertTriangle size={13} style={{ flexShrink: 0 }} />
+                                <span>Motorcycle Taxi: rough estimate, dynamic surge pricing applies.</span>
                               </div>
                             )}
 
                             {hasNotes && (
                               <div className={`step-description ${isDutyCaution ? 'duty-note-highlight' : ''}`}>
                                 {isDutyCaution ? (
-                                  <span className="duty-caution-pill">
-                                    <Sparkles size={12} /> Student Duty Memo Note:
-                                  </span>
+                                  <div className="duty-memo-content">
+                                    <span className="duty-caution-pill">
+                                      <Info size={12} /> Important commute tip:
+                                    </span>
+                                    <div className="duty-note-text">{step.leg.notes}</div>
+                                  </div>
                                 ) : (
-                                  <Lightbulb size={12} style={{ display: 'inline', marginRight: '4px', verticalAlign: 'text-bottom', color: '#D97706' }} />
+                                  <div className="step-note-inline">
+                                    <Lightbulb size={13} className="step-note-icon" />
+                                    <div className="step-note-text">{step.leg.notes}</div>
+                                  </div>
                                 )}
-                                <div>{step.leg.notes}</div>
                               </div>
                             )}
                           </div>

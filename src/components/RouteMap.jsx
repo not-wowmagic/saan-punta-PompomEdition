@@ -2,7 +2,7 @@ import React, { useEffect, useState, memo } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { Lock, Unlock } from 'lucide-react';
+import { Lock, Unlock, MapPin } from 'lucide-react';
 import { MODE_LABELS } from '../utils/constants';
 import { CLINICAL_HOSPITALS } from '../data/clinicalHospitals';
 
@@ -25,8 +25,6 @@ const DefaultIcon = L.icon({
 
 L.Marker.prototype.options.icon = DefaultIcon;
 
-// Custom Custard & Pudding SVG Markers
-// Origin: Beret mascot pin cleanly contained inside circle frame!
 const createPompomOriginMarker = () => {
   return L.divIcon({
     html: `
@@ -47,76 +45,60 @@ const createPompomOriginMarker = () => {
   });
 };
 
-// Destination: Caramel Custard Flan / Pudding!
 const createPuddingDestMarker = () => {
   return L.divIcon({
     html: `
       <div class="custom-pompom-pin-wrapper dest-pin">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 54" width="42" height="48" class="pompom-map-svg">
-          <!-- Outer pin drop shadow & shape -->
-          <path d="M 24 53 C 24 53 6 36 6 22 A 18 18 0 0 1 42 22 C 42 36 24 53 24 53 Z" fill="#B45309" />
-          <path d="M 24 50 C 24 50 8 34 8 22 A 16 16 0 0 1 40 22 C 40 34 24 50 24 50 Z" fill="#FEF3C7" />
-          
-          <!-- Flan pudding body -->
-          <path d="M 16 28 L 19 16 L 29 16 L 32 28 Z" fill="#FDE047" stroke="#78350F" stroke-width="1.2" />
-          <!-- Caramel topping -->
-          <path d="M 18 17 Q 24 19 30 17 L 29 20 Q 27 22 25 20 Q 23 22 21 20 Q 19 22 18 17 Z" fill="#92400E" />
-          <circle cx="24" cy="13" r="2.5" fill="#EF4444" /> <!-- Cherry on top -->
-          
-          <!-- Destination 'B' or Star -->
-          <text x="24" y="32" fill="#78350F" font-size="7" font-family="'Fredoka', sans-serif" font-weight="700" text-anchor="middle">GOAL</text>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 48" width="38" height="44" class="pompom-map-svg">
+          <path d="M 21 46 C 21 46 5 32 5 19 A 16 16 0 0 1 37 19 C 37 32 21 46 21 46 Z" fill="#B45309" />
+          <path d="M 21 43 C 21 43 7 30 7 19 A 14 14 0 0 1 35 19 C 35 30 21 43 21 43 Z" fill="#F59E0B" />
+          <circle cx="21" cy="18" r="8.5" fill="#FFFFFF" />
+          <circle cx="21" cy="18" r="4" fill="#B45309" />
         </svg>
       </div>
     `,
     className: 'custom-pompom-div-icon',
-    iconSize: [42, 48],
-    iconAnchor: [21, 48],
-    popupAnchor: [0, -48]
+    iconSize: [38, 44],
+    iconAnchor: [19, 44],
+    popupAnchor: [0, -44]
   });
 };
 
-// Hospital Marker: Hospital Cross with pastel pink and beret
 const createHospitalMarker = (isHighlighted) => {
-  const bgFill = isHighlighted ? "#FF8DA1" : "#FEE2E2";
-  const crossFill = "#EF4444";
-  const borderColor = isHighlighted ? "#BE185D" : "#4A2810";
+  const pinFill = isHighlighted ? "#E11D48" : "#EF4444";
+  const borderFill = isHighlighted ? "#9F1239" : "#B91C1C";
 
   return L.divIcon({
     html: `
       <div class="custom-pompom-pin-wrapper hospital-pin ${isHighlighted ? 'highlighted-pin' : ''}">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 46" width="34" height="42" class="hospital-map-svg">
-          <path d="M 19 45 C 19 45 4 30 4 19 A 15 15 0 0 1 34 19 C 34 30 19 45 19 45 Z" fill="${borderColor}" />
-          <path d="M 19 42 C 19 42 6 28 6 19 A 13 13 0 0 1 32 19 C 32 28 19 42 19 42 Z" fill="${bgFill}" />
-          <!-- Mini beret on hospital pin -->
-          <ellipse cx="19" cy="8" rx="6" ry="2.2" fill="#4A2810" />
-          <circle cx="19" cy="6" r="1.2" fill="#4A2810" />
-          <!-- Red cross -->
-          <rect x="16.5" y="13" width="5" height="13" rx="1.5" fill="${crossFill}" />
-          <rect x="12.5" y="17" width="13" height="5" rx="1.5" fill="${crossFill}" />
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 44" width="32" height="40" class="hospital-map-svg">
+          <path d="M 18 42 C 18 42 4 28 4 18 A 14 14 0 0 1 32 18 C 32 28 18 42 18 42 Z" fill="${borderFill}" />
+          <path d="M 18 39 C 18 39 6 26 6 18 A 12 12 0 0 1 30 18 C 30 26 18 39 18 39 Z" fill="#FFFFFF" />
+          <rect x="15" y="10" width="6" height="16" rx="1.5" fill="${pinFill}" />
+          <rect x="10" y="15" width="16" height="6" rx="1.5" fill="${pinFill}" />
         </svg>
       </div>
     `,
     className: 'custom-pompom-div-icon',
-    iconSize: [34, 42],
-    iconAnchor: [17, 42],
-    popupAnchor: [0, -42]
+    iconSize: [32, 40],
+    iconAnchor: [16, 40],
+    popupAnchor: [0, -40]
   });
 };
 
-// Transfer / Node Pin
-const createTransferMarker = (labelText) => {
+const createTransferMarker = () => {
   return L.divIcon({
     html: `
       <div class="custom-pompom-pin-wrapper transfer-pin">
         <div class="transfer-pin-bubble">
-          <span>${labelText}</span>
+          <div class="transfer-dot-inner"></div>
         </div>
       </div>
     `,
     className: 'custom-pompom-div-icon',
-    iconSize: [28, 28],
-    iconAnchor: [14, 14],
-    popupAnchor: [0, -14]
+    iconSize: [22, 22],
+    iconAnchor: [11, 11],
+    popupAnchor: [0, -11]
   });
 };
 
@@ -124,7 +106,7 @@ const POMPOM_ORIGIN_ICON = createPompomOriginMarker();
 const PUDDING_DEST_ICON = createPuddingDestMarker();
 const HIGHLIGHTED_HOSPITAL_ICON = createHospitalMarker(true);
 const REGULAR_HOSPITAL_ICON = createHospitalMarker(false);
-const TRANSFER_ICON = createTransferMarker("🐾");
+const TRANSFER_ICON = createTransferMarker();
 
 // Component to handle auto-fitting map view boundaries to the active route
 function MapBoundsUpdater({ bounds }) {
@@ -336,8 +318,8 @@ function RouteMap({ activeRoute, nodesById, allNodes = [], isVisible = false }) 
     <div className="map-wrapper" id="pompom-map-container">
       <div className="map-toolbar">
         <div className="map-badge">
-          <span className="pudding-spin">🍮</span>
-          <span className="map-badge-text">Interactive Route Map</span>
+          <MapPin size={13} className="map-badge-icon" />
+          <span className="map-badge-text">Route Map</span>
         </div>
 
         {activeRoute && activeRoute.legs && activeRoute.legs.length > 0 && (
@@ -359,11 +341,11 @@ function RouteMap({ activeRoute, nodesById, allNodes = [], isVisible = false }) 
           type="button"
           className={`lock-toggle-btn ${isLocked ? 'locked' : 'unlocked'}`}
           onClick={() => setIsLocked(!isLocked)}
-          title={isLocked ? "Unlock map dragging & zoom" : "Lock map to prevent accidental scrolls"}
+          title={isLocked ? "Unlock map movement" : "Lock map movement"}
           aria-label={isLocked ? "Unlock map" : "Lock map"}
         >
           {isLocked ? <Lock size={15} /> : <Unlock size={15} />}
-          <span>{isLocked ? "Map Locked" : "Map Active"}</span>
+          <span>{isLocked ? "Map Locked" : "Map Unlocked"}</span>
         </button>
       </div>
 
@@ -377,14 +359,12 @@ function RouteMap({ activeRoute, nodesById, allNodes = [], isVisible = false }) 
         <MapResizeHandler isVisible={isVisible} bounds={bounds} />
         {bounds && <MapBoundsUpdater bounds={bounds} />}
 
-        {/* OpenStreetMap Clean Tiles */}
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           maxZoom={19}
         />
 
-        {/* Unified Route Polyline: Outer High-Contrast Halo Casing */}
         {routeSegments.map((seg, idx) => (
           <Polyline
             key={`casing-${idx}`}
@@ -399,7 +379,6 @@ function RouteMap({ activeRoute, nodesById, allNodes = [], isVisible = false }) 
           />
         ))}
 
-        {/* Unified Route Polyline: Continuous Golden Amber Route Line (No clashing blue/pink lines) */}
         {routeSegments.map((seg, idx) => {
           const mode = seg.step.leg.mode;
           const isWalk = mode === 'walk';
@@ -420,7 +399,6 @@ function RouteMap({ activeRoute, nodesById, allNodes = [], isVisible = false }) 
               <Popup className="pompom-leaflet-popup">
                 <div className="popup-content">
                   <div className="popup-badge">
-                    <span className="popup-icon">🐾</span>
                     <span>{MODE_LABELS[mode]} {seg.step.leg.route_name ? `(${seg.step.leg.route_name})` : ''}</span>
                   </div>
                   <div className="popup-route">
@@ -431,7 +409,7 @@ function RouteMap({ activeRoute, nodesById, allNodes = [], isVisible = false }) 
                   </div>
                   {seg.step.leg.notes && (
                     <div className="popup-notes">
-                      💡 {seg.step.leg.notes}
+                      <strong>Tip:</strong> {seg.step.leg.notes}
                     </div>
                   )}
                 </div>
@@ -470,12 +448,14 @@ function RouteMap({ activeRoute, nodesById, allNodes = [], isVisible = false }) 
               <Popup className="pompom-leaflet-popup">
                 <div className="popup-content">
                   <div className="popup-title">
-                    {isHospital ? '🏥 ' : isStart ? '🚩 Origin: ' : isEnd ? '🍮 Destination: ' : '📍 '}
+                    <span className="popup-type-prefix">
+                      {isHospital ? 'Hospital: ' : isStart ? 'Origin: ' : isEnd ? 'Destination: ' : 'Stop: '}
+                    </span>
                     {node.name}
                   </div>
                   {isHospital && (
                     <div className="popup-hospital-info">
-                      <span className="badge-hospital-tag">Affiliated Hospital</span>
+                    <span className="badge-hospital-tag">Hospital</span>
                     </div>
                   )}
                 </div>
