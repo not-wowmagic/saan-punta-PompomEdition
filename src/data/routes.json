@@ -256,8 +256,8 @@
     {
       "id": "val_med_ctr",
       "name": "Valenzuela Medical Center (VMC)",
-      "lat": 14.6865,
-      "lng": 120.9782
+      "lat": 14.68967,
+      "lng": 120.9778
     },
     {
       "id": "qc_gen_hosp",
@@ -268,8 +268,8 @@
     {
       "id": "tondo_med_ctr",
       "name": "Tondo Medical Center (TMC)",
-      "lat": 14.6293,
-      "lng": 120.9639
+      "lat": 14.63502,
+      "lng": 120.96307
     },
     {
       "id": "fabella_med_ctr",

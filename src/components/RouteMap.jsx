@@ -5,6 +5,8 @@ import 'leaflet/dist/leaflet.css';
 import { Lock, Unlock, MapPin } from 'lucide-react';
 import { MODE_LABELS } from '../utils/constants';
 import { CLINICAL_HOSPITALS } from '../data/clinicalHospitals';
+import corridor from '../data/macarthur-karuhatan.geometry.json';
+import { getCorridorGeometry } from '../utils/map-corridor.js';
 
 const hospitalIdSet = new Set(CLINICAL_HOSPITALS.map(h => h.id));
 
@@ -236,6 +238,9 @@ function RouteMap({ activeRoute, nodesById, allNodes = [], isVisible = false }) 
         return;
       }
 
+      setRouteSegments([]);
+      const usesVmc = activeRoute.legs.some(step =>
+        step.fromNode === 'val_med_ctr' || step.toNode === 'val_med_ctr');
       const segments = [];
       const allPoints = [];
 
@@ -246,35 +251,33 @@ function RouteMap({ activeRoute, nodesById, allNodes = [], isVisible = false }) 
 
         if (!fromNode || !toNode) continue;
 
-        const straightLine = [
-          [fromNode.lat, fromNode.lng],
-          [toNode.lat, toNode.lng]
-        ];
-
-        allPoints.push([fromNode.lat, fromNode.lng]);
-        allPoints.push([toNode.lat, toNode.lng]);
-
-        const cacheKey = `${fromNode.id}_${toNode.id}`;
-        let coordinates = roadCoordsCache.get(cacheKey);
-
+        allPoints.push([fromNode.lat, fromNode.lng], [toNode.lat, toNode.lng]);
+        const cacheKey = JSON.stringify(['road-v3', fromNode.lat, fromNode.lng,
+          toNode.lat, toNode.lng, step.leg.mode]);
+        // Use the sourced highway corridor for this hospital journey. This
+        // avoids both driving-router shortcuts and invented straight lines.
+        let coordinates = usesVmc
+          ? getCorridorGeometry(fromNode, toNode, corridor.coordinates)
+          : null;
+        coordinates ??= roadCoordsCache.get(cacheKey);
         if (!coordinates) {
           try {
             const url = `https://router.project-osrm.org/route/v1/driving/${fromNode.lng},${fromNode.lat};${toNode.lng},${toNode.lat}?overview=full&geometries=geojson`;
             const res = await fetch(url);
             if (res.ok) {
               const data = await res.json();
-              if (data.routes && data.routes[0] && data.routes[0].geometry) {
-                coordinates = data.routes[0].geometry.coordinates.map(c => [c[1], c[0]]);
+              coordinates = data.routes?.[0]?.geometry?.coordinates?.map(c => [c[1], c[0]]);
+              if (coordinates?.length > 1) {
                 roadCoordsCache.set(cacheKey, coordinates);
                 saveCoordsCache();
               }
             }
-          } catch (e) {
-            console.warn("OSRM road routing failed, falling back to straight line:", e);
+          } catch (error) {
+            console.warn('Road geometry unavailable; keeping markers without an invented line.', error);
           }
         }
-
-        const finalCoords = coordinates || straightLine;
+        if (!coordinates || coordinates.length < 2) continue;
+        const finalCoords = coordinates;
         segments.push({
           step,
           coordinates: finalCoords,
