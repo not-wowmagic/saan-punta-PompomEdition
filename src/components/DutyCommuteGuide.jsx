@@ -6,7 +6,6 @@ import {
   Star, 
   Info,
   Stethoscope,
-  AlertTriangle,
   Navigation
 } from 'lucide-react';
 import { CLINICAL_HOSPITALS } from '../data/clinicalHospitals';
@@ -64,26 +63,11 @@ export default function DutyCommuteGuide({
           <span>Hospital Guide</span>
         </div>
         <h3 className="duty-guide-title">
-          Hospitals and commute tips for nursing students
+          Hospitals and commute tips
         </h3>
         <p className="duty-guide-subtitle">
           Browse affiliated hospitals and find practical commute tips.
         </p>
-      </div>
-
-      {/* Important commute tip */}
-      <div className="duty-memo-alert">
-        <div className="duty-memo-icon-box">
-          <AlertTriangle size={20} className="alert-icon" />
-        </div>
-        <div className="duty-memo-content">
-          <div className="duty-memo-title">
-            <strong>IMPORTANT</strong> magsabi sa driver saan bababa
-          </div>
-          <div className="duty-memo-sub">
-            Bago umandar o pagkaabot ng pamasahe, banggitin agad ang drop-off landmark upang hindi lumampas sa hospital gate.
-          </div>
-        </div>
       </div>
 
       {/* Filter Tabs and Search Bar */}

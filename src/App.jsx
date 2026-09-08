@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, lazy, Suspense } from 'react';
+import React, { useState, useEffect, useMemo, useRef, lazy, Suspense } from 'react';
 import { Stethoscope, Navigation, Map as MapIcon, List as ListIcon, Loader2 } from 'lucide-react';
 import routesData from './data/routes.json';
 import { findRouteAlternatives } from './utils/k-shortest';
@@ -56,6 +56,55 @@ export default function App() {
 
   const activeRoute = routes[selectedRouteIndex] || null;
 
+  // Header navigation pills desktop drag-to-scroll
+  const navPillsRef = useRef(null);
+  const isDraggingRef = useRef(false);
+  const startXRef = useRef(0);
+  const scrollLeftRef = useRef(0);
+  const hasDraggedRef = useRef(false);
+
+  const handleMouseDown = (e) => {
+    const slider = navPillsRef.current;
+    if (!slider) return;
+    isDraggingRef.current = true;
+    hasDraggedRef.current = false;
+    startXRef.current = e.pageX - slider.offsetLeft;
+    scrollLeftRef.current = slider.scrollLeft;
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDraggingRef.current) return;
+    const slider = navPillsRef.current;
+    if (!slider) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startXRef.current) * 1.5;
+    if (Math.abs(walk) > 4) {
+      hasDraggedRef.current = true;
+    }
+    slider.scrollLeft = scrollLeftRef.current - walk;
+  };
+
+  const handleMouseUpOrLeave = () => {
+    isDraggingRef.current = false;
+  };
+
+  const handleClickCapture = (e) => {
+    if (hasDraggedRef.current) {
+      e.stopPropagation();
+      e.preventDefault();
+      hasDraggedRef.current = false;
+    }
+  };
+
+  const handleWheel = (e) => {
+    const slider = navPillsRef.current;
+    if (!slider) return;
+    if (e.deltaY !== 0 && e.deltaX === 0) {
+      slider.scrollLeft += e.deltaY;
+    }
+  };
+
   // Handle hospital selection from the Hospital Guide
   const handleSelectHospital = (hospitalId) => {
     setDestinationNode(hospitalId);
@@ -79,7 +128,16 @@ export default function App() {
             </div>
           </div>
 
-          <div className="header-nav-pills">
+          <div 
+            ref={navPillsRef}
+            className="header-nav-pills"
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUpOrLeave}
+            onMouseLeave={handleMouseUpOrLeave}
+            onClickCapture={handleClickCapture}
+            onWheel={handleWheel}
+          >
             <button
               type="button"
               className={`nav-pill-btn ${activeTab === 'planner' ? 'active' : ''}`}
@@ -105,7 +163,6 @@ export default function App() {
               <Stethoscope size={15} />
               <span className="pill-label-desktop">Hospital Guide</span>
               <span className="pill-label-mobile">Hospital Guide</span>
-              <span className="badge-count">14</span>
             </button>
           </div>
         </div>

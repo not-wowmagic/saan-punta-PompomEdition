@@ -337,6 +337,22 @@ h1, h2, h3, h4, h5, h6 {
   padding: 5px;
   border-radius: var(--radius-pill);
   border: 1.5px solid #FDE68A;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+  user-select: none;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+}
+
+.header-nav-pills:active {
+  cursor: grabbing;
+}
+
+.header-nav-pills::-webkit-scrollbar {
+  display: none;
 }
 
 .nav-pill-btn {
@@ -353,6 +369,8 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   cursor: pointer;
   transition: all var(--transition-fast);
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .nav-pill-btn:hover {
@@ -1713,49 +1731,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
-/* Important commute tip banner */
-.duty-memo-alert {
-  background: linear-gradient(135deg, #FFF1F2, #FFFBEB);
-  border: 2.5px solid #FDA4AF;
-  border-radius: var(--radius-lg);
-  padding: 16px 20px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  box-shadow: 0 6px 18px rgba(225, 29, 72, 0.1);
-}
-
-.duty-memo-icon-box {
-  width: 44px;
-  height: 44px;
-  background: #FFE4E6;
-  border: 2px solid #FB7185;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #E11D48;
-  font-size: 1.4rem;
-  flex-shrink: 0;
-}
-
-.duty-memo-title {
-  font-size: 1.1rem;
-  color: #9F1239;
-  margin-bottom: 3px;
-}
-
-.duty-memo-title strong {
-  color: #E11D48;
-}
-
-.duty-memo-sub {
-  font-size: 0.82rem;
-  color: #881337;
-  font-weight: 600;
-  line-height: 1.35;
-}
-
 /* Filters & Search */
 .duty-filters-row {
   display: flex;
@@ -2205,10 +2180,26 @@ h1, h2, h3, h4, h5, h6 {
 
   /* Header Segmented Pill Bar */
   .header-nav-pills {
-    padding: 2px;
-    gap: 2px;
+    padding: 3px;
+    gap: 3px;
     background: #FEF3C7;
-    flex-shrink: 0;
+    flex-shrink: 1;
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    cursor: grab;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .header-nav-pills:active {
+    cursor: grabbing;
+  }
+
+  .header-nav-pills::-webkit-scrollbar {
+    display: none;
   }
 
   .nav-pill-btn {
@@ -2498,6 +2489,25 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.74rem;
   }
 
+  .profile-options-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  .profile-options-row .pref-btn {
+    min-width: 0;
+    width: 100%;
+    padding: 7px 6px;
+    font-size: 0.72rem;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .profile-options-row .pref-btn:first-child {
+    grid-column: 1 / -1;
+  }
+
   /* Route Results List & Clean Headers on Mobile */
   .routes-list-header {
     margin-top: 4px;
@@ -2513,7 +2523,13 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .pompom-pill-tag {
-    display: none !important;
+    display: inline-flex !important;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--pompom-caramel);
+    white-space: nowrap;
   }
 
   .routes-cards-stack {
@@ -2529,9 +2545,9 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .route-card.active-route-card {
-    border-left: 5px solid var(--pompom-amber);
+    border: 1.5px solid var(--pompom-amber);
     background: #FFFCF7;
-    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.12);
+    box-shadow: 0 4px 18px rgba(217, 119, 6, 0.12);
   }
 
   .route-card-header {
@@ -2580,6 +2596,15 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.76rem;
     padding: 8px 10px;
     line-height: 1.4;
+  }
+
+  .step-description.duty-note-highlight {
+    background: #FEF3C7;
+    border: 1.5px solid #F59E0B;
+    border-radius: var(--radius-md);
+    padding: 10px 12px;
+    color: #24160E;
+    box-shadow: 0 2px 8px rgba(217, 119, 6, 0.1);
   }
 
   /* Hospital Guide grid */
