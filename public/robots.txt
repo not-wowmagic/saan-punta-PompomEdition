@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://saan-punta-pompom-edition.vercel.app/sitemap.xml
